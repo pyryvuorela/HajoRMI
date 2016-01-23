@@ -1085,19 +1085,14 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
-		try {
-			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-				System.out.print(f.returnText("Silo started working!"));
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
-		}
+    		
         // TODO Mitä tehdään, kun siilojen täytön ruuvikuljetin käynnistetään?
     }//GEN-LAST:event_startSiloLoadActionPerformed
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
 		try {
 			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-			f.saveMsg(userName.getText());
+			f.userLogIn(userName.getText());
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1105,13 +1100,6 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_signInActionPerformed
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
-		try {
-			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-			System.out.println(f.getMsg());
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
-		}
-		// Moi
     	// TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 
@@ -1120,7 +1108,14 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startProcLoad2ActionPerformed
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
-        // TODO Mitä tehdään kun siilo1 varataan?
+		
+    	try {
+			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
+			f.reserveSilo1();
+    	} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
+    	// TODO Mitä tehdään kun siilo1 varataan?
     }//GEN-LAST:event_reserveSilo1ActionPerformed
 
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
@@ -1232,15 +1227,7 @@ public class MainWindow extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-
-		try {
-			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-				System.out.print(" " + f.returnText("Connection to server done!"));
-		} catch (Exception e) {
-			System.out.println("Error: " + e);
-		}
 	
-    	
     	
     	try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

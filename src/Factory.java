@@ -5,11 +5,13 @@ import java.rmi.RemoteException;
 
 public interface Factory extends Remote {
 
-	public String returnText(String ms) throws RemoteException;
-
-	public void saveMsg(String msg) throws RemoteException;
+	public void userLogIn(String userName) throws RemoteException;
+	public void createNewUser(String name) throws RemoteException;
+	public void setCurrentUser(newUser currentUser) throws RemoteException;
+	public newUser getCurrentUser() throws RemoteException;
 	
-	public String getMsg() throws RemoteException;
+	public void startSiloLoadAction() throws RemoteException;
+	public boolean reserveSilo1() throws RemoteException;
 
 	
 }

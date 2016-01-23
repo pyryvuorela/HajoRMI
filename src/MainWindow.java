@@ -1087,7 +1087,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
 		try {
 			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-				System.out.print(" " + f.viesti("toimii"));
+				System.out.print(f.returnText("Silo started working!"));
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1097,7 +1097,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
 		try {
 			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-				System.out.print(" " + f.viesti(userName.getText()));
+			f.saveMsg(userName.getText());
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1105,7 +1105,13 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_signInActionPerformed
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
-        // TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
+		try {
+			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
+			System.out.println(f.getMsg());
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
+    	// TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 
     private void startProcLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad2ActionPerformed
@@ -1228,7 +1234,7 @@ public class MainWindow extends javax.swing.JFrame {
 
 		try {
 			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-				System.out.print(" " + f.viesti("toimii"));
+				System.out.print(" " + f.returnText("Connection to server done!"));
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}

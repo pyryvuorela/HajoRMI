@@ -3,16 +3,30 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-public class FactoryImplementation extends UnicastRemoteObject implements Factory {
-
-	public FactoryImplementation() throws RemoteException {
+public class FactoryImplementation extends UnicastRemoteObject implements Factory {	
+		private String message;
+		
+	public FactoryImplementation() throws RemoteException {	
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String viesti(String ms) throws RemoteException {
-		// TODO Auto-generated method stub
+		return ms;		
+	}
+
+	@Override
+	public void saveMsg(String msg) throws RemoteException {
+		message = msg;
+	}
+
+	@Override
+	public String returnText(String ms) throws RemoteException {
 		return ms;
 	}
+
+	@Override
+	public String getMsg() throws RemoteException {
+		return message;
+	}	
 	
 }

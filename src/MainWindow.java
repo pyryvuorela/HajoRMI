@@ -1111,6 +1111,7 @@ public class MainWindow extends javax.swing.JFrame {
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
+		// Moi
     	// TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 

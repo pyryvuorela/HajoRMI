@@ -7,9 +7,11 @@ public interface Factory extends Remote {
 
 	public void userLogIn(String userName) throws RemoteException;
 	
-	public boolean startSiloLoadAction() throws RemoteException;
+	public void startSiloLoadAction() throws RemoteException;
 	
-	public boolean reserveSilo1() throws RemoteException;
-
+	public void reserveSilo1() throws RemoteException;
+	public void reserveSilo2() throws RemoteException;
+	public void reserveSilo3() throws RemoteException;
+	public void reserveSilo4() throws RemoteException;
 	
 }

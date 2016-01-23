@@ -11,6 +11,6 @@ public class FactoryServer {
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
-	} // main
+	} 
 
 } 

@@ -1085,7 +1085,15 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
-    		
+		try {
+			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
+			if(f.startSiloLoadAction())
+				System.out.println("Loader is ready for action!");
+			else
+				System.out.println("Loader is in action, wait for a moment!");
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
         // TODO Mitä tehdään, kun siilojen täytön ruuvikuljetin käynnistetään?
     }//GEN-LAST:event_startSiloLoadActionPerformed
 
@@ -1108,13 +1116,6 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startProcLoad2ActionPerformed
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
-		
-    	try {
-			Factory f = (Factory) Naming.lookup("rmi://localhost/factory");
-			f.reserveSilo1();
-    	} catch (Exception e) {
-			System.out.println("Error: " + e);
-		}
     	// TODO Mitä tehdään kun siilo1 varataan?
     }//GEN-LAST:event_reserveSilo1ActionPerformed
 

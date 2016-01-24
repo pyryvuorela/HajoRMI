@@ -27,8 +27,13 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		newUser newuser = new newUser(userName);
 	}		
 	public void startSiloLoadAction() throws RemoteException {
-		System.out.println("Toimii");
-			siloLoader.start();
+		if(siloLoader.getIsReadyForUse() == true){
+			System.out.println("Kuljetinta painettu");
+			Thread thred = new Thread(siloLoader);
+			thred.start();
+		}else{
+			System.out.println("Kuljetin ei ole valmis");
+		}
 	}
 	@Override
 	public void reserveSilo1() throws RemoteException {

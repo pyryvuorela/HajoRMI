@@ -1107,9 +1107,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
     	try {
 			f.reserveSilo1();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun siilo1 varataan?
     }//GEN-LAST:event_reserveSilo1ActionPerformed
@@ -1117,9 +1116,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
        try {
 		f.reserveSilo2();
-	} catch (RemoteException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	} catch (Exception e) {
+		System.out.println("Error: " + e);
 	}
     	// TODO Mitä tehdään kun siilo2 varataan?
     }//GEN-LAST:event_reserveSilo2ActionPerformed
@@ -1127,9 +1125,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveSilo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo3ActionPerformed
         	try {
 			f.reserveSilo3();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
         	// TODO Mitä tehdään kun siilo3 varataan?
     }//GEN-LAST:event_reserveSilo3ActionPerformed
@@ -1137,9 +1134,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveSilo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo4ActionPerformed
     	try {
 			f.reserveSilo4();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun siilo4 varataan?
     }//GEN-LAST:event_reserveSilo4ActionPerformed

@@ -16,7 +16,7 @@ public class Silo extends Thread {
 	public void run(){
 		if(!isUsed){
 			isUsed=true;
-			if(!siloLoader.getSiloLoaderState() && siloLoader.getIsReady()){
+			if(!siloLoader.getSiloLoaderState() && siloLoader.getIsReadyForUse()){
 				System.out.println("Siloloader is reserved for this silo!");
 				try {
 					siloLoader.setSiloLoaderState(true);

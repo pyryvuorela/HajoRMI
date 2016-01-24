@@ -1086,7 +1086,8 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
 		try {			
-			f.startSiloLoadAction();
+			//f.startSiloLoadAction();
+			System.out.println("Lataaja valmiustilassa");
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1106,10 +1107,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
     	try {
-    		startSiloLoad.setSelected(false);
-    		reserveSilo1.setSelected(false);
-    		f.reserveSilo1();
-    		silo1Status.setText("TAHAN SILO1 CURRENTAMOUNT");
+    		if (startSiloLoad.isEnabled()){
+	    		f.reserveSilo1();
+	    		f.startSiloLoadAction();
+	    		startSiloLoad.setSelected(false);
+	    		reserveSilo1.setSelected(false);
+	    		silo1Status.setText("10000");
+    		}else{
+    			System.out.println("Siilo / Lataaja kaytossa");
+    		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1117,8 +1123,16 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveSilo1ActionPerformed
 
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
-       try {
-		f.reserveSilo2();
+    	try {
+    		if (startSiloLoad.isEnabled()){
+	    		f.reserveSilo2();
+	    		f.startSiloLoadAction();
+	    		startSiloLoad.setSelected(false);
+	    		reserveSilo2.setSelected(false);
+	    		silo2Status.setText("10000");
+    		}else{
+    			System.out.println("Siilo / Lataaja kaytossa");
+    		}
        } catch (Exception e) {
 		System.out.println("Error: " + e);
        }
@@ -1126,8 +1140,16 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveSilo2ActionPerformed
 
     private void reserveSilo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo3ActionPerformed
-        	try {
-			f.reserveSilo3();
+    	try {
+    		if (startSiloLoad.isEnabled()){
+	    		f.reserveSilo3();
+	    		f.startSiloLoadAction();
+	    		startSiloLoad.setSelected(false);
+	    		reserveSilo3.setSelected(false);
+	    		silo3Status.setText("10000");
+    		}else{
+    			System.out.println("Siilo / Lataaja kaytossa");
+    		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1136,7 +1158,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo4ActionPerformed
     	try {
-			f.reserveSilo4();
+    		if (startSiloLoad.isEnabled()){
+	    		f.reserveSilo4();
+	    		f.startSiloLoadAction();
+	    		startSiloLoad.setSelected(false);
+	    		reserveSilo4.setSelected(false);
+	    		silo4Status.setText("10000");
+    		}else{
+    			System.out.println("Siilo / Lataaja kaytossa");
+    		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}

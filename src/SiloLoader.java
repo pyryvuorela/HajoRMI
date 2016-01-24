@@ -20,7 +20,7 @@ public class SiloLoader implements Runnable{
 				try {
 					System.out.println("Kuljetin pumppaa 200 kg/s");
 					Thread.sleep(5000);
-					System.out.println("Kuljetin pumppasi 1000 kg");
+					System.out.println("Kuljetin pumppasi 10000 kg");
 					shutdown();
 				} catch (Exception e) {
 					System.out.println("Error: " + e);

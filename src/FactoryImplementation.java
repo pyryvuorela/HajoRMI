@@ -69,7 +69,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			Thread silo4thread = new Thread(silo4);
 			silo4thread.start();
 		}else{
-			System.out.println("Silo1 on kaytossa");
+			System.out.println("Silo4 on kaytossa");
 		}
 	}
 }

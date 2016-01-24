@@ -28,7 +28,7 @@ public class Silo implements Runnable {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					System.out.println("Silo if full!");
+					System.out.println("Silo is full!");
 					currentAmount = capacity;
 					
 					siloLoader.setSiloLoaderState(false);

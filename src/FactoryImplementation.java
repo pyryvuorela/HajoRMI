@@ -29,23 +29,47 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public void startSiloLoadAction() throws RemoteException {
 		if(siloLoader.getIsReadyForUse() == true){
 			System.out.println("Kuljetinta painettu");
-			Thread thred = new Thread(siloLoader);
-			thred.start();
+			Thread loaderthread = new Thread(siloLoader);
+			loaderthread.start();
 		}else{
 			System.out.println("Kuljetin ei ole valmis");
 		}
 	}
 	@Override
 	public void reserveSilo1() throws RemoteException {
-		silo1.start();	
+		if(silo1.isSiloFree() == true){
+			System.out.println("Silo1 varausta painettu");
+			Thread silo1thread = new Thread(silo1);
+			silo1thread.start();
+		}else{
+			System.out.println("Silo1 on kaytossa");
+		}	
 	}
 	public void reserveSilo2() throws RemoteException {
-		silo2.start();
+		if(silo2.isSiloFree() == true){
+			System.out.println("Silo2 varausta painettu");
+			Thread silo2thread = new Thread(silo2);
+			silo2thread.start();
+		}else{
+			System.out.println("Silo2 on kaytossa");
+		}
 	}
 	public void reserveSilo3() throws RemoteException {
-		silo3.start();	
+		if(silo3.isSiloFree() == true){
+			System.out.println("Silo3 varausta painettu");
+			Thread silo3thread = new Thread(silo3);
+			silo3thread.start();
+		}else{
+			System.out.println("Silo3 on kaytossa");
+		}	
 	}
 	public void reserveSilo4() throws RemoteException {
-		silo4.start();
+		if(silo4.isSiloFree() == true){
+			System.out.println("Silo4 varausta painettu");
+			Thread silo4thread = new Thread(silo4);
+			silo4thread.start();
+		}else{
+			System.out.println("Silo1 on kaytossa");
+		}
 	}
 }

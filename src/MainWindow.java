@@ -1106,7 +1106,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
     	try {
-			f.reserveSilo1();
+    		startSiloLoad.setSelected(false);
+    		reserveSilo1.setSelected(false);
+    		f.reserveSilo1();
+    		silo1Status.setText("TAHAN SILO1 CURRENTAMOUNT");
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1116,9 +1119,9 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
        try {
 		f.reserveSilo2();
-	} catch (Exception e) {
+       } catch (Exception e) {
 		System.out.println("Error: " + e);
-	}
+       }
     	// TODO Mitä tehdään kun siilo2 varataan?
     }//GEN-LAST:event_reserveSilo2ActionPerformed
 

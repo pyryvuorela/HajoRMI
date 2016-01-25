@@ -74,4 +74,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public String silo4CurrentAmoutUpdate() throws RemoteException{
 		return Integer.toString(silo4.getCurrentAmount());
 	}
+	public String currentUserUpdate() throws RemoteException {
+		return users.getCurrentUser();
+	}
 }

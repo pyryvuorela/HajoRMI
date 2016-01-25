@@ -1096,9 +1096,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
     	try {
 			f.userLogIn(userName.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
+    	signIn.setSelected(false);
     	// TODO Mitä tehdään kun käyttäjä kirjautuu
     }//GEN-LAST:event_signInActionPerformed
 
@@ -1292,6 +1293,7 @@ public class MainWindow extends javax.swing.JFrame {
 						silo2Status.setText(f.silo2CurrentAmoutUpdate());
 						silo3Status.setText(f.silo3CurrentAmoutUpdate());
 						silo4Status.setText(f.silo4CurrentAmoutUpdate());
+						userNameLabel.setText(f.currentUserUpdate());
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}
@@ -1397,6 +1399,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel tank9Status;
     private javax.swing.JPanel tankPanel;
     private static javax.swing.JTextField userName;
-    private javax.swing.JLabel userNameLabel;
+    private static javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
 }

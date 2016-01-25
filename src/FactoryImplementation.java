@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class FactoryImplementation extends UnicastRemoteObject implements Factory {	
 	private SiloLoader siloLoader;
 	
-	private String currentUser;
 	private Silo silo1;
 	private Silo silo2;
 	private Silo silo3;
@@ -21,10 +20,10 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public FactoryImplementation() throws RemoteException {	
 		super();
 		this.siloLoader = new SiloLoader();
-		this.silo1 = new Silo(currentUser, siloLoader);
-		this.silo2 = new Silo(currentUser, siloLoader);
-		this.silo3 = new Silo(currentUser, siloLoader);
-		this.silo4 = new Silo(currentUser, siloLoader);
+		this.silo1 = new Silo();
+		this.silo2 = new Silo();
+		this.silo3 = new Silo();
+		this.silo4 = new Silo();
 		this.loaderthread = new Thread(siloLoader);
 		this.silo1thread = new Thread(silo1);
 		this.silo2thread = new Thread(silo2);

@@ -1107,15 +1107,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
     	try {
-    		if (startSiloLoad.isEnabled()){
 	    		f.reserveSilo1();
-	    		//f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo1.setSelected(false);
-	    		//silo1Status.setText("10000");
-    		}else{
-    			System.out.println("Siilo / Lataaja kaytossa");
-    		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1124,15 +1118,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
     	try {
-    		if (startSiloLoad.isEnabled()){
 	    		f.reserveSilo2();
-	    		f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo2.setSelected(false);
-	    		//silo2Status.setText("10000");
-    		}else{
-    			System.out.println("Siilo / Lataaja kaytossa");
-    		}
        } catch (Exception e) {
 		System.out.println("Error: " + e);
        }
@@ -1141,15 +1129,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo3ActionPerformed
     	try {
-    		if (startSiloLoad.isEnabled()){
 	    		f.reserveSilo3();
-	    		f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo3.setSelected(false);
-	    		//silo3Status.setText("10000");
-    		}else{
-    			System.out.println("Siilo / Lataaja kaytossa");
-    		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1158,15 +1140,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo4ActionPerformed
     	try {
-    		if (startSiloLoad.isEnabled()){
 	    		f.reserveSilo4();
-	    		f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo4.setSelected(false);
-	    		//silo4Status.setText("10000");
-    		}else{
-    			System.out.println("Siilo / Lataaja kaytossa");
-    		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}

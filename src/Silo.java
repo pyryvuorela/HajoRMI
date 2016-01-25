@@ -4,7 +4,7 @@ public class Silo implements Runnable {
 	private final int capacity = 10000;
 	
 	
-	public Silo(String user, SiloLoader siloloader){
+	public Silo(){
 		currentAmount = 10;
 	}
 

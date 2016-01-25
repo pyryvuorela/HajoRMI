@@ -18,6 +18,7 @@ public class Silo implements Runnable {
 						e.printStackTrace();
 					}
 					
+					
 				}
 	
 	public void removeSilosContent(int amount){

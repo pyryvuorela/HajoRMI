@@ -1094,6 +1094,11 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO Mitä tehdään, kun siilojen täytön ruuvikuljetin käynnistetään?
     }//GEN-LAST:event_startSiloLoadActionPerformed
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
+    	try {
+			f.userLogIn(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
     	// TODO Mitä tehdään kun käyttäjä kirjautuu
     }//GEN-LAST:event_signInActionPerformed
 
@@ -1278,19 +1283,23 @@ public class MainWindow extends javax.swing.JFrame {
         });
     // Tahan tulee paivittaja thread
     
-        class Updater extends Thread{
+        class Updater implements Runnable{
         	
         	public void run(){
         		while(true){
         			try {
 						silo1Status.setText(f.silo1CurrentAmoutUpdate());
+						silo2Status.setText(f.silo2CurrentAmoutUpdate());
+						silo3Status.setText(f.silo3CurrentAmoutUpdate());
+						silo4Status.setText(f.silo4CurrentAmoutUpdate());
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}
         		}
         	}
         }
-    Updater updater = new Updater();
+    Updater ud = new Updater();
+    Thread updater = new Thread(ud);
     updater.start();
     System.out.println("ToimiiKs");
     
@@ -1347,11 +1356,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel silo1Label;
     private static javax.swing.JLabel silo1Status;
     private javax.swing.JLabel silo2Label;
-    private javax.swing.JLabel silo2Status;
+    private static javax.swing.JLabel silo2Status;
     private javax.swing.JLabel silo3Label;
-    private javax.swing.JLabel silo3Status;
+    private static javax.swing.JLabel silo3Status;
     private javax.swing.JLabel silo4Label;
-    private javax.swing.JLabel silo4Status;
+    private static javax.swing.JLabel silo4Status;
     private javax.swing.JLabel siloLoadConvStatus;
     private javax.swing.JLabel siloLoadLabel;
     private javax.swing.JPanel siloLoadPanel;
@@ -1387,7 +1396,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel tank9Label;
     private javax.swing.JLabel tank9Status;
     private javax.swing.JPanel tankPanel;
-    private javax.swing.JTextField userName;
+    private static javax.swing.JTextField userName;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
 }

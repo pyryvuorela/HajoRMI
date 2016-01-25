@@ -3,10 +3,13 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class FactoryImplementation extends UnicastRemoteObject implements Factory {	
-	private SiloLoader siloLoader;
 	
+	private Users users;
+	
+	private SiloLoader siloLoader;
 	private Silo silo1;
 	private Silo silo2;
 	private Silo silo3;
@@ -19,6 +22,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	
 	public FactoryImplementation() throws RemoteException {	
 		super();
+		this.users = new Users();
 		this.siloLoader = new SiloLoader();
 		this.silo1 = new Silo();
 		this.silo2 = new Silo();
@@ -33,8 +37,8 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 
 	@Override
 	public void userLogIn(String userName) throws RemoteException {
-		newUser newuser = new newUser(userName);
-	}		
+		users.checkLogInRegisterStatus(userName);
+	}	
 	public void startSiloLoadAction() throws RemoteException {
 			System.out.println("Kuljetinta painettu");
 			loaderthread.start();
@@ -60,5 +64,14 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	// UPDATER
 	public String silo1CurrentAmoutUpdate() throws RemoteException{
 		return Integer.toString(silo1.getCurrentAmount());
+	}
+	public String silo2CurrentAmoutUpdate() throws RemoteException{
+		return Integer.toString(silo2.getCurrentAmount());
+	}
+	public String silo3CurrentAmoutUpdate() throws RemoteException{
+		return Integer.toString(silo3.getCurrentAmount());
+	}
+	public String silo4CurrentAmoutUpdate() throws RemoteException{
+		return Integer.toString(silo4.getCurrentAmount());
 	}
 }

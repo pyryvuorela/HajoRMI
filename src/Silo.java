@@ -16,9 +16,7 @@ public class Silo implements Runnable {
 						System.out.println("Silo is full!");
 					} catch (InterruptedException e) {
 						e.printStackTrace();
-					}
-					
-					
+					}					
 				}
 	
 	public void removeSilosContent(int amount){

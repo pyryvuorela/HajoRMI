@@ -14,11 +14,19 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	private Silo silo2;
 	private Silo silo3;
 	private Silo silo4;
+	private Stove stove1;
+	private Stove stove2;
+	private Stove stove3;
+	private Stove stove4;
 	private Thread loaderthread;
 	private Thread silo1thread;
 	private Thread silo2thread;
 	private Thread silo3thread;
 	private Thread silo4thread;
+	private Thread stove1thread;
+	private Thread stove2thread;
+	private Thread stove3thread;
+
 	
 	public FactoryImplementation() throws RemoteException {	
 		super();
@@ -33,6 +41,9 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		this.silo2thread = new Thread(silo2);
 		this.silo3thread = new Thread(silo3);
 		this.silo4thread = new Thread(silo4);
+		this.stove1thread = new Thread(stove1);
+		this.stove2thread = new Thread(stove2);
+		this.stove3thread = new Thread(stove3);
 	}
 
 	public void userLogIn(String userName) throws RemoteException {
@@ -58,6 +69,26 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			System.out.println("Silo4 varausta painettu");
 			silo4thread.start();
 	}
+	public void reserveStove1(String user) throws RemoteException {
+		System.out.println("Stove1 varausta painettu");
+		stove1.reserveStove(user);
+	}
+	public void reserveStove2(String user) throws RemoteException {
+		stove2.reserveStove(user);
+	}
+	public void reserveStove3(String user) throws RemoteException {
+		stove3.reserveStove(user);
+	}
+	public void startStove1() throws RemoteException {
+		System.out.println("Stove1 aloitettu!");
+		stove1thread.start();
+	}
+	public void startStove2() throws RemoteException {
+		stove2thread.start();
+	}
+	public void startStove3() throws RemoteException {
+		stove3thread.start();
+	}
 	
 	// UPDATER
 	public String silo1CurrentAmoutUpdate() throws RemoteException{
@@ -75,4 +106,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public String currentUserUpdate() throws RemoteException {
 		return users.getCurrentUser();
 	}
+
+
 }

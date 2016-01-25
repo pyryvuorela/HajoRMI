@@ -1,6 +1,4 @@
-public class SiloLoader implements Runnable{	
-	
-	
+public class SiloLoader implements Runnable{		
 	
 	public SiloLoader() {
 	}

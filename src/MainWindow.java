@@ -1156,26 +1156,55 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveSilo4ActionPerformed
 
     private void reserveProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc1ActionPerformed
-        // TODO Mitä tehdään kun keitin1 varataan?
+       try {
+		f.reserveStove1(userNameLabel.getText());
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+    	// TODO Mitä tehdään kun keitin1 varataan?
     }//GEN-LAST:event_reserveProc1ActionPerformed
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
-        // TODO Mitä tehdään kun keitin1 käynnistetään?
+        try {
+    		f.startStove1();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	// TODO Mitä tehdään kun keitin1 käynnistetään?
     }//GEN-LAST:event_startProc1ActionPerformed
 
     private void reserveProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc2ActionPerformed
-        // TODO Mitä tehdään kun keitin2 varataan?
+        try {
+    		f.reserveStove2(userNameLabel.getText());
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}// TODO Mitä tehdään kun keitin2 varataan?
     }//GEN-LAST:event_reserveProc2ActionPerformed
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
-        // TODO Mitä tehdään kun keitin2 käynnistetään?
+        try {
+    		f.startStove1();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	// TODO Mitä tehdään kun keitin2 käynnistetään?
     }//GEN-LAST:event_startProc2ActionPerformed
 
     private void reserveProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc3ActionPerformed
-        // TODO Mitä tehdään kun keitin3 varataan?
+        try {
+    		f.reserveStove3(userNameLabel.getText());
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	// TODO Mitä tehdään kun keitin3 varataan?
     }//GEN-LAST:event_reserveProc3ActionPerformed
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
+       try {
+    		f.startStove1();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
         // TODO Mitä tehdään kun keitin3 käynnistetään?
     }//GEN-LAST:event_startProc3ActionPerformed
 
@@ -1284,8 +1313,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
     // Tahan tulee paivittaja thread
     
-        class Updater implements Runnable{
-        	
+        class Updater implements Runnable{        	
         	public void run(){
         		while(true){
         			try {
@@ -1300,8 +1328,7 @@ public class MainWindow extends javax.swing.JFrame {
         		}
         	}
         }
-    Updater ud = new Updater();
-    Thread updater = new Thread(ud);
+    Thread updater = new Thread(new Updater());
     updater.start();
     System.out.println("ToimiiKs");
     

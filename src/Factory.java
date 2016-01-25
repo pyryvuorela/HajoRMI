@@ -14,4 +14,7 @@ public interface Factory extends Remote {
 	public void reserveSilo3() throws RemoteException;
 	public void reserveSilo4() throws RemoteException;
 	
+	//UPDATER
+	public String silo1CurrentAmoutUpdate() throws RemoteException;
+	
 }

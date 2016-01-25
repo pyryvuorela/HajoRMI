@@ -1086,7 +1086,7 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
 		try {			
-			//f.startSiloLoadAction();
+			f.startSiloLoadAction();
 			System.out.println("Lataaja valmiustilassa");
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -1109,10 +1109,10 @@ public class MainWindow extends javax.swing.JFrame {
     	try {
     		if (startSiloLoad.isEnabled()){
 	    		f.reserveSilo1();
-	    		f.startSiloLoadAction();
+	    		//f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo1.setSelected(false);
-	    		silo1Status.setText("10000");
+	    		//silo1Status.setText("10000");
     		}else{
     			System.out.println("Siilo / Lataaja kaytossa");
     		}
@@ -1129,7 +1129,7 @@ public class MainWindow extends javax.swing.JFrame {
 	    		f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo2.setSelected(false);
-	    		silo2Status.setText("10000");
+	    		//silo2Status.setText("10000");
     		}else{
     			System.out.println("Siilo / Lataaja kaytossa");
     		}
@@ -1146,7 +1146,7 @@ public class MainWindow extends javax.swing.JFrame {
 	    		f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo3.setSelected(false);
-	    		silo3Status.setText("10000");
+	    		//silo3Status.setText("10000");
     		}else{
     			System.out.println("Siilo / Lataaja kaytossa");
     		}
@@ -1163,7 +1163,7 @@ public class MainWindow extends javax.swing.JFrame {
 	    		f.startSiloLoadAction();
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo4.setSelected(false);
-	    		silo4Status.setText("10000");
+	    		//silo4Status.setText("10000");
     		}else{
     			System.out.println("Siilo / Lataaja kaytossa");
     		}
@@ -1300,6 +1300,24 @@ public class MainWindow extends javax.swing.JFrame {
                 new MainWindow().setVisible(true);
             }
         });
+    // Tahan tulee paivittaja thread
+    
+        class Updater extends Thread{
+        	
+        	public void run(){
+        		while(true){
+        			try {
+						silo1Status.setText(f.silo1CurrentAmoutUpdate());
+					} catch (Exception e) {
+						System.out.println("Error threadissa: " + e);
+					}
+        		}
+        	}
+        }
+    Updater updater = new Updater();
+    updater.start();
+    System.out.println("ToimiiKs");
+    
     }
     private static Factory f; 
 
@@ -1351,7 +1369,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton reserveTank9;
     private javax.swing.JToggleButton signIn;
     private javax.swing.JLabel silo1Label;
-    private javax.swing.JLabel silo1Status;
+    private static javax.swing.JLabel silo1Status;
     private javax.swing.JLabel silo2Label;
     private javax.swing.JLabel silo2Status;
     private javax.swing.JLabel silo3Label;

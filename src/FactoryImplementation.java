@@ -35,7 +35,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		this.silo4thread = new Thread(silo4);
 	}
 
-	@Override
 	public void userLogIn(String userName) throws RemoteException {
 		users.checkLogInRegisterStatus(userName);
 	}	
@@ -43,7 +42,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			System.out.println("Kuljetinta painettu");
 			loaderthread.start();
 	}
-	@Override
 	public void reserveSilo1() throws RemoteException {
 			System.out.println("Silo1 varausta painettu");
 			silo1thread.start();

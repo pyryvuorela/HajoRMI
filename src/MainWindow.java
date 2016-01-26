@@ -1086,7 +1086,7 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
 		try {			
-			f.startSiloLoadAction();
+			f.startSiloLoadAction(userName.getText());
 			System.out.println("Lataaja valmiustilassa");
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -1105,6 +1105,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_signInActionPerformed
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
+    	try {
+			f.startUnloader1(Integer.parseInt(procLoadAmount1.getText()),userName.getText());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     	// TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 
@@ -1114,7 +1119,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
     	try {
-	    		f.reserveSilo1();
+	    		f.reserveSilo1(userName.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo1.setSelected(false);
 		} catch (Exception e) {
@@ -1125,7 +1130,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
     	try {
-	    		f.reserveSilo2();
+	    		f.reserveSilo2(userName.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo2.setSelected(false);
        } catch (Exception e) {
@@ -1136,7 +1141,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo3ActionPerformed
     	try {
-	    		f.reserveSilo3();
+	    		f.reserveSilo3(userName.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo3.setSelected(false);
 		} catch (Exception e) {
@@ -1147,7 +1152,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo4ActionPerformed
     	try {
-	    		f.reserveSilo4();
+	    		f.reserveSilo4(userName.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo4.setSelected(false);
 		} catch (Exception e) {

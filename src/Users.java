@@ -3,6 +3,8 @@ import java.util.LinkedList;
 public class Users{
 	private LinkedList<String> allUsers;
 	private String currentUser;
+	private int reservedSilo; 
+
 	
 	public Users(){
 		allUsers = new LinkedList<String>();
@@ -13,10 +15,12 @@ public class Users{
 			if(name.equals(allUsers.get(i))){
 				currentUser = name;
 				System.out.println("User: " + name + " logged in!");
+				break;
 			}else{
 				newUser(name);
 				currentUser = name;
 				System.out.println("User: " + name + " registered and logged in!");
+				break;
 			}
 		}
 		}else{
@@ -31,4 +35,5 @@ public class Users{
 	public String getCurrentUser() {
 		return currentUser;
 	}
+
 }

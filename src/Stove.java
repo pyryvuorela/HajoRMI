@@ -36,8 +36,10 @@ public class Stove implements Runnable{
 		reservedUser = user;
 		System.out.println("Stove reserved for user: " + reservedUser);
 	}
-	public void currentUser(String current){
+	public void setCurrentUser(String current){
 		currentUser = current;
+	}public String getReservedUser(){
+		return reservedUser;
 	}
 	public void setMaterialAmount(int material){
 		if(material <= currentMaterial)

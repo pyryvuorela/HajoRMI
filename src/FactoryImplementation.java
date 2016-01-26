@@ -18,6 +18,8 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	private Stove stove2;
 	private Stove stove3;
 	private Stove stove4;
+	
+	private Unloader unloader1;
 
 
 	
@@ -32,30 +34,59 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		this.stove1 =  new Stove();
 		this.stove2 =  new Stove();
 		this.stove3 =  new Stove();
+		this.unloader1 = new Unloader();
 	}
 
 	public void userLogIn(String userName) throws RemoteException {
 		users.checkLogInRegisterStatus(userName);
 	}	
-	public void startSiloLoadAction() throws RemoteException {
-			System.out.println("Kuljetinta painettu");
-			new Thread(siloLoader).start();
+	public void startSiloLoadAction(String user) throws RemoteException {
+		 if(silo1.getCurrentUser().equals(user)){
+			siloLoader.setCurrentUser(user);
+			if(!siloLoader.getLoaderisUsed()){
+					new Thread(siloLoader).start();
+					new Thread(silo1).start();
+			}
+		}
+		 else if(silo2.getCurrentUser().equals(user)){
+			siloLoader.setCurrentUser(user);
+				if(!siloLoader.getLoaderisUsed()){
+					new Thread(siloLoader).start();
+					new Thread(silo2).start();
+				}
+		}
+		 else if(silo3.getCurrentUser().equals(user)){
+			siloLoader.setCurrentUser(user);
+				if(!siloLoader.getLoaderisUsed()){
+					new Thread(siloLoader).start();
+					new Thread(silo3).start();
+				}
+		}
+		 else if(silo4.getCurrentUser().equals(user)){
+			siloLoader.setCurrentUser(user);
+				if(!siloLoader.getLoaderisUsed()){
+					new Thread(siloLoader).start();
+					new Thread(silo4).start();
+				}
+		}
 	}
-	public void reserveSilo1() throws RemoteException {
+	public void reserveSilo1(String user) throws RemoteException {
 			System.out.println("Silo1 varausta painettu");
-			new Thread(silo1).start();
+			System.out.println(siloLoader.getCurrentUser());
+			silo1.setCurrentUser(user);
+
 	}
-	public void reserveSilo2() throws RemoteException {
+	public void reserveSilo2(String user) throws RemoteException {
 			System.out.println("Silo2 varausta painettu");
-			new Thread(silo2).start();
+			silo2.setCurrentUser(user);
 	}
-	public void reserveSilo3() throws RemoteException {
+	public void reserveSilo3(String user) throws RemoteException {
 			System.out.println("Silo3 varausta painettu");
-			new Thread(silo3).start();
+			silo3.setCurrentUser(user);
 	}
-	public void reserveSilo4() throws RemoteException {
+	public void reserveSilo4(String user) throws RemoteException {
 			System.out.println("Silo4 varausta painettu");
-			new Thread(silo4).start();
+			silo4.setCurrentUser(user);
 	}
 	public void reserveStove1(String user) throws RemoteException {
 		System.out.println("Stove1 varausta painettu");
@@ -68,16 +99,87 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		stove3.reserveStove(user);
 	}
 	public void startStove1(String user) throws RemoteException {
-		stove1.currentUser(user);
+		stove1.setCurrentUser(user);
 		new Thread(stove1).start();
 	}
 	public void startStove2(String user) throws RemoteException {
-		stove2.currentUser(user);
+		stove2.setCurrentUser(user);
 		new Thread(stove2).start();
 	}
 	public void startStove3(String user) throws RemoteException {
-		stove3.currentUser(user);
+		stove3.setCurrentUser(user);
 		new Thread(stove3).start();
+	}
+	
+	public void startUnloader1(int amount, String user) throws RemoteException {
+		if(silo1.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			if(stove2.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			if(stove3.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
+		if(silo2.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			if(stove2.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			if(stove3.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
+		if(silo3.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			if(stove2.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			if(stove3.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
+		if(silo4.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			if(stove2.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			if(stove3.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader1.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
 	}
 	
 	// UPDATER
@@ -93,4 +195,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public String silo4CurrentAmoutUpdate() throws RemoteException{
 		return Integer.toString(silo4.getCurrentAmount());
 	}
+	
+
 }

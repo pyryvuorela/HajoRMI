@@ -58,6 +58,9 @@ public class Stove implements Runnable{
 		else
 			System.out.println("Too much material!");
 	}
+	public int getCurrentMaterial(){
+		return this.currentMaterial;
+	}
 	public int getCurrentBatch(){
 		reservedUser = null;
 		currentUser = null;

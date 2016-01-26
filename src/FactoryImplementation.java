@@ -17,7 +17,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	private Stove stove1;
 	private Stove stove2;
 	private Stove stove3;
-	private Stove stove4;
 	
 	private Unloader unloader1;
 	private Unloader unloader2;
@@ -266,6 +265,21 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public String silo4CurrentAmoutUpdate() throws RemoteException{
 		return Integer.toString(silo4.getCurrentAmount());
+	}
+
+	public String proc1CurrentUpdate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return Integer.toString(stove1.getCurrentMaterial());
+	}
+
+	public String proc2CurrentUpdate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return Integer.toString(stove2.getCurrentMaterial());
+	}
+
+	public String proc3CurrentUpdate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return Integer.toString(stove3.getCurrentMaterial());
 	}
 	
 

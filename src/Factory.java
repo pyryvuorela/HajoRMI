@@ -29,6 +29,9 @@ public interface Factory extends Remote {
 	public String silo2CurrentAmoutUpdate() throws RemoteException;
 	public String silo3CurrentAmoutUpdate() throws RemoteException;
 	public String silo4CurrentAmoutUpdate() throws RemoteException;
-	
+
+	public String proc1CurrentUpdate() throws RemoteException;
+	public String proc2CurrentUpdate() throws RemoteException;
+	public String proc3CurrentUpdate() throws RemoteException;
 	
 }

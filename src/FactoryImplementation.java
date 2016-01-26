@@ -26,6 +26,8 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	private Thread stove1thread;
 	private Thread stove2thread;
 	private Thread stove3thread;
+	
+	private static String latestUser;
 
 	
 	public FactoryImplementation() throws RemoteException {	
@@ -83,13 +85,15 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		stove3.reserveStove(user);
 	}
 	public void startStove1() throws RemoteException {
-		System.out.println("Stove1 aloitettu!");
+		stove1.currentUser(latestUser);
 		stove1thread.start();
 	}
 	public void startStove2() throws RemoteException {
+		stove2.currentUser(latestUser);
 		stove2thread.start();
 	}
 	public void startStove3() throws RemoteException {
+		stove3.currentUser(latestUser);
 		stove3thread.start();
 	}
 	
@@ -107,6 +111,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		return Integer.toString(silo4.getCurrentAmount());
 	}
 	public String currentUserUpdate() throws RemoteException {
+		latestUser = users.getCurrentUser();
 		return users.getCurrentUser();
 	}
 

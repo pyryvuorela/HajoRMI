@@ -265,31 +265,28 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}
 	}
 	// UPDATER
-	public String silo1CurrentAmoutUpdate() throws RemoteException{
+	public String silo1CurrentAmountUpdate() throws RemoteException{
 		return Integer.toString(silo1.getCurrentAmount());
 	}
-	public String silo2CurrentAmoutUpdate() throws RemoteException{
+	public String silo2CurrentAmountUpdate() throws RemoteException{
 		return Integer.toString(silo2.getCurrentAmount());
 	}
-	public String silo3CurrentAmoutUpdate() throws RemoteException{
+	public String silo3CurrentAmountUpdate() throws RemoteException{
 		return Integer.toString(silo3.getCurrentAmount());
 	}
-	public String silo4CurrentAmoutUpdate() throws RemoteException{
+	public String silo4CurrentAmountUpdate() throws RemoteException{
 		return Integer.toString(silo4.getCurrentAmount());
 	}
 
 	public String proc1CurrentUpdate() throws RemoteException {
-		// TODO Auto-generated method stub
 		return Integer.toString(stove1.getCurrentMaterial());
 	}
 
 	public String proc2CurrentUpdate() throws RemoteException {
-		// TODO Auto-generated method stub
 		return Integer.toString(stove2.getCurrentMaterial());
 	}
 
 	public String proc3CurrentUpdate() throws RemoteException {
-		// TODO Auto-generated method stub
 		return Integer.toString(stove3.getCurrentMaterial());
 	}
 	

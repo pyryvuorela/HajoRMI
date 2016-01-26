@@ -21,7 +21,7 @@ public class Stove implements Runnable{
 			try {
 				System.out.println("Stove is preparing the batch!");
 				Thread.sleep(5000);
-				currentBatch = currentMaterial *5;
+				currentBatch = currentMaterial * 5;
 				System.out.println("Batch is ready!");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -50,20 +50,24 @@ public class Stove implements Runnable{
 	}
 	public void setMaterialAmount(int material){
 		if(material + currentMaterial <= maxMaterialCapacity){
-			int sleepTime = 1000*(material/200);
+			//int sleepTime = 1000*(material/200);
+			int oldCurrentMaterial = currentMaterial;
 			try {
-				Thread.sleep(sleepTime);
+				while (currentMaterial < material + oldCurrentMaterial){					
+					Thread.sleep(1);
+					currentMaterial = currentMaterial + 1;
+					System.out.println(currentMaterial);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		currentMaterial = material + currentMaterial;
 		System.out.println("Material added! Current amount is: "+ currentMaterial);
 		}		
 		else
 			System.out.println("Too much material!");
 	}
 	public int getCurrentMaterial(){
-		return this.currentMaterial;
+		return currentMaterial;
 	}
 	public int getCurrentBatch(){
 		reservedUser = null;

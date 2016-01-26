@@ -1338,10 +1338,10 @@ public class MainWindow extends javax.swing.JFrame {
         	public void run(){
         		while(true){
         			try {
-						silo1Status.setText(f.silo1CurrentAmoutUpdate());
-						silo2Status.setText(f.silo2CurrentAmoutUpdate());
-						silo3Status.setText(f.silo3CurrentAmoutUpdate());
-						silo4Status.setText(f.silo4CurrentAmoutUpdate());
+						silo1Status.setText(f.silo1CurrentAmountUpdate());
+						silo2Status.setText(f.silo2CurrentAmountUpdate());
+						silo3Status.setText(f.silo3CurrentAmountUpdate());
+						silo4Status.setText(f.silo4CurrentAmountUpdate());
 						proc1Status.setText(f.proc1CurrentUpdate());
 						proc2Status.setText(f.proc2CurrentUpdate());
 						proc3Status.setText(f.proc3CurrentUpdate());

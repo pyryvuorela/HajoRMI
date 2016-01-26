@@ -14,7 +14,7 @@ public class SiloLoader implements Runnable{
 				loaderIsUsed = true;
 				try{
 					System.out.println("Kuljetin pumppaa 200 kg/s");
-					Thread.sleep(10000);
+					Thread.sleep(5000);
 					currentUser = null;
 					loaderIsUsed = false;
 				} catch (Exception e) {

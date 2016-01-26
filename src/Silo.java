@@ -15,8 +15,10 @@ public class Silo implements Runnable {
 		if(currentUser != null){
 					System.out.println("Siloloader is reserved for this silo!");
 					try {
-						Thread.sleep(5000);
-						currentAmount = capacity;
+						while (currentAmount < capacity){
+							Thread.sleep(1);
+							currentAmount = currentAmount + 2;
+						}
 						System.out.println("Silo is full!");
 					} catch (InterruptedException e) {
 						e.printStackTrace();

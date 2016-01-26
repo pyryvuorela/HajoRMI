@@ -30,10 +30,10 @@ public interface Factory extends Remote {
 	
 	//UPDATER
 
-	public String silo1CurrentAmoutUpdate() throws RemoteException;
-	public String silo2CurrentAmoutUpdate() throws RemoteException;
-	public String silo3CurrentAmoutUpdate() throws RemoteException;
-	public String silo4CurrentAmoutUpdate() throws RemoteException;
+	public String silo1CurrentAmountUpdate() throws RemoteException;
+	public String silo2CurrentAmountUpdate() throws RemoteException;
+	public String silo3CurrentAmountUpdate() throws RemoteException;
+	public String silo4CurrentAmountUpdate() throws RemoteException;
 
 	public String proc1CurrentUpdate() throws RemoteException;
 	public String proc2CurrentUpdate() throws RemoteException;

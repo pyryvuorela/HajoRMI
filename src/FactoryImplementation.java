@@ -36,6 +36,9 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		this.silo2 = new Silo();
 		this.silo3 = new Silo();
 		this.silo4 = new Silo();
+		this.stove1 =  new Stove();
+		this.stove2 =  new Stove();
+		this.stove3 =  new Stove();
 		this.loaderthread = new Thread(siloLoader);
 		this.silo1thread = new Thread(silo1);
 		this.silo2thread = new Thread(silo2);

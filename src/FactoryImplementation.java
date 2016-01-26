@@ -20,6 +20,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	private Stove stove4;
 	
 	private Unloader unloader1;
+	private Unloader unloader2;
 
 
 	
@@ -35,6 +36,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		this.stove2 =  new Stove();
 		this.stove3 =  new Stove();
 		this.unloader1 = new Unloader();
+		this.unloader2 = new Unloader();
 	}
 
 	public void userLogIn(String userName) throws RemoteException {
@@ -118,65 +120,135 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
 			}			
-			if(stove2.getReservedUser().equals(user)){
+			else if(stove2.getReservedUser().equals(user)){
 				silo1.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
 			}
-			if(stove3.getReservedUser().equals(user)){
+			else if(stove3.getReservedUser().equals(user)){
 				silo1.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
 			}
 		}
-		if(silo2.getCurrentUser().equals(user)){
+		else if(silo2.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+				silo2.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
 			}			
-			if(stove2.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+			else if(stove2.getReservedUser().equals(user)){
+				silo2.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
 			}
-			if(stove3.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+			else if(stove3.getReservedUser().equals(user)){
+				silo2.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
 			}
 		}
-		if(silo3.getCurrentUser().equals(user)){
+		else if(silo3.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+				silo3.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
 			}			
-			if(stove2.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+			else if(stove2.getReservedUser().equals(user)){
+				silo3.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
 			}
-			if(stove3.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+			else if(stove3.getReservedUser().equals(user)){
+				silo3.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
 			}
 		}
-		if(silo4.getCurrentUser().equals(user)){
+		else if(silo4.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+				silo4.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
 			}			
-			if(stove2.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+			else if(stove2.getReservedUser().equals(user)){
+				silo4.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
 			}
-			if(stove3.getReservedUser().equals(user)){
-				silo1.removeSilosContent(amount);		
+			else if(stove3.getReservedUser().equals(user)){
+				silo4.removeSilosContent(amount);		
 				unloader1.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
+	}
+	public void startUnloader2(int amount, String user) throws RemoteException {
+		if(silo1.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			else if(stove2.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			else if(stove3.getReservedUser().equals(user)){
+				silo1.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
+		else if(silo2.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo2.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			else if(stove2.getReservedUser().equals(user)){
+				silo2.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			else if(stove3.getReservedUser().equals(user)){
+				silo2.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
+		else if(silo3.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo3.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			else if(stove2.getReservedUser().equals(user)){
+				silo3.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			else if(stove3.getReservedUser().equals(user)){
+				silo3.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove3.setMaterialAmount(amount);
+			}
+		}
+		else if(silo4.getCurrentUser().equals(user)){
+			if(stove1.getReservedUser().equals(user)){
+				silo4.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove1.setMaterialAmount(amount);
+			}			
+			else if(stove2.getReservedUser().equals(user)){
+				silo4.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
+				stove2.setMaterialAmount(amount);
+			}
+			else if(stove3.getReservedUser().equals(user)){
+				silo4.removeSilosContent(amount);		
+				unloader2.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
 			}
 		}

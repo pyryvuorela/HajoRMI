@@ -4,9 +4,10 @@ public class Unloader implements Runnable {
 	private final int maxUnload = 2000;
 	private final int maxUnloadSpeed = 200;
 	private String user;
+	private boolean unloaderDone;
 
 	public Unloader(){
-		
+		unloaderDone = false;
 		
 	}
 	public void run() {
@@ -14,10 +15,14 @@ public class Unloader implements Runnable {
 	}
 	
 	public void setUnloadAmount(int amount){
+		unloaderDone = false;
 		unloadAmount = amount;
 	}
 	public void setUser(String user){
 		this.user = user;
+	}
+	public boolean getUnloaderDone(){
+		return unloaderDone;
 	}
 
 	

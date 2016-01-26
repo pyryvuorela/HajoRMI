@@ -1114,6 +1114,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startProcLoad1ActionPerformed
 
     private void startProcLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad2ActionPerformed
+    	try {
+    		f.startUnloader2(Integer.parseInt(procLoadAmount2.getText()), userName.getText());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     	// TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad2ActionPerformed
 
@@ -1335,7 +1340,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     Thread updater = new Thread(new Updater());
     updater.start();
-    System.out.println("ToimiiKs");
     
     }
     private static Factory f; 

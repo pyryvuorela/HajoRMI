@@ -22,6 +22,9 @@ public interface Factory extends Remote {
 	public void startStove3(String user) throws RemoteException;
 	
 	public void startUnloader1(int amount, String user) throws RemoteException;
+	public void startUnloader2(int amount, String user) throws RemoteException;
+	
+	public void reserveTank1(String user) throws RemoteException;
 	
 	//UPDATER
 

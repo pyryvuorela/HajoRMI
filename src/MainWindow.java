@@ -1096,6 +1096,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
     	try {
 			f.userLogIn(userName.getText());
+			userNameLabel.setText(userName.getText());
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1166,7 +1167,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
         try {
-    		f.startStove1();
+    		f.startStove1(userName.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -1183,7 +1184,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
         try {
-    		f.startStove1();
+    		f.startStove1(userName.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -1201,7 +1202,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
        try {
-    		f.startStove1();
+    		f.startStove1(userName.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -1321,7 +1322,6 @@ public class MainWindow extends javax.swing.JFrame {
 						silo2Status.setText(f.silo2CurrentAmoutUpdate());
 						silo3Status.setText(f.silo3CurrentAmoutUpdate());
 						silo4Status.setText(f.silo4CurrentAmoutUpdate());
-						userNameLabel.setText(f.currentUserUpdate());
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}

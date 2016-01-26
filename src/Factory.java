@@ -17,13 +17,12 @@ public interface Factory extends Remote {
 	public void reserveStove1(String name) throws RemoteException;
 	public void reserveStove2(String name) throws RemoteException;
 	public void reserveStove3(String name) throws RemoteException;
-	public void startStove1() throws RemoteException;
-	public void startStove2() throws RemoteException;
-	public void startStove3() throws RemoteException;
+	public void startStove1(String name) throws RemoteException;
+	public void startStove2(String name) throws RemoteException;
+	public void startStove3(String name) throws RemoteException;
 	
 	//UPDATER
-	public String currentUserUpdate() throws RemoteException;
-	
+
 	public String silo1CurrentAmoutUpdate() throws RemoteException;
 	public String silo2CurrentAmoutUpdate() throws RemoteException;
 	public String silo3CurrentAmoutUpdate() throws RemoteException;

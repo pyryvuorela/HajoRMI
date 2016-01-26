@@ -1220,7 +1220,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startProc3ActionPerformed
 
     private void startPump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump1ActionPerformed
-        // TODO Mitä tehdään kun pumppu1 käynnistetään?
+       try {
+		f.startPump1(userName.getText());
+	} catch (RemoteException e) {
+		e.printStackTrace();
+	}
+    	// TODO Mitä tehdään kun pumppu1 käynnistetään?
     }//GEN-LAST:event_startPump1ActionPerformed
 
     private void startPump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump2ActionPerformed
@@ -1236,7 +1241,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed
-        // TODO Mitä tehdään kun säiliö1 varataan?
+      try {
+		f.reserveTank1(userName.getText());
+	} catch (RemoteException e) {
+		e.printStackTrace();
+	}
+    	// TODO Mitä tehdään kun säiliö1 varataan?
     }//GEN-LAST:event_reserveTank1ActionPerformed
 
     private void reserveTank2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank2ActionPerformed

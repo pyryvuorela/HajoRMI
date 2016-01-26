@@ -257,7 +257,14 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public void reserveTank1(String user) throws RemoteException {
 		tank1.setReservedUser(user);
 	}
-	
+	public void startPump1(String user) throws RemoteException {
+		System.out.println("pumppu");
+		if(stove1.getReservedUser().equals(tank1.getReservedUser())){
+			pump1.setTank(tank1);
+			pump1.setMovedAmount(stove1.getCurrentBatch());
+			new Thread(pump1).start();
+		}
+	}
 	// UPDATER
 	public String silo1CurrentAmoutUpdate() throws RemoteException{
 		return Integer.toString(silo1.getCurrentAmount());
@@ -271,7 +278,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public String silo4CurrentAmoutUpdate() throws RemoteException{
 		return Integer.toString(silo4.getCurrentAmount());
 	}
-
 
 
 }

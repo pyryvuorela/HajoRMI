@@ -15,7 +15,7 @@ public class Stove implements Runnable{
 	reservedUser = null;
 	}
 	
-	public void run() {
+	public void run() { 
 		if(reservedUser != null){
 			if(reservedUser.equals(currentUser)){
 			try {
@@ -35,8 +35,12 @@ public class Stove implements Runnable{
 	}
 	
 	public void reserveStove(String user){
+		if(reservedUser == null){
 		reservedUser = user;
 		System.out.println("Stove reserved for user: " + reservedUser);
+		}else{
+			System.out.println("Stove is already in use!");
+		}
 	}
 	public void setCurrentUser(String current){
 		currentUser = current;

@@ -2,8 +2,6 @@
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class FactoryImplementation extends UnicastRemoteObject implements Factory {	
 	
@@ -20,6 +18,10 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	
 	private Unloader unloader1;
 	private Unloader unloader2;
+	
+	private Tank tank1;
+	
+	private Pump pump1;
 
 
 	
@@ -36,6 +38,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		this.stove3 =  new Stove();
 		this.unloader1 = new Unloader();
 		this.unloader2 = new Unloader();
+		this.tank1 = new Tank();
 	}
 
 	public void userLogIn(String userName) throws RemoteException {
@@ -73,9 +76,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void reserveSilo1(String user) throws RemoteException {
 			System.out.println("Silo1 varausta painettu");
-			System.out.println(siloLoader.getCurrentUser());
 			silo1.setCurrentUser(user);
-
 	}
 	public void reserveSilo2(String user) throws RemoteException {
 			System.out.println("Silo2 varausta painettu");
@@ -252,7 +253,17 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			}
 		}
 	}
-	
+	public void reserveTank1(String user) throws RemoteException {
+		tank1.setReservedUser(user);
+	}
+	public void startPump1(String user) throws RemoteException {
+		System.out.println("pumppu");
+		if(stove1.getReservedUser().equals(tank1.getReservedUser())){
+			pump1.setTank(tank1);
+			pump1.setMovedAmount(stove1.getCurrentBatch());
+			new Thread(pump1).start();
+		}
+	}
 	// UPDATER
 	public String silo1CurrentAmoutUpdate() throws RemoteException{
 		return Integer.toString(silo1.getCurrentAmount());

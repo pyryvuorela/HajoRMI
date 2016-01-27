@@ -17,6 +17,7 @@ public class SiloLoader implements Runnable{
 					Thread.sleep(5000);
 					currentUser = null;
 					loaderIsUsed = false;
+					System.out.println("Kuljetin valmis!");
 				} catch (Exception e) {
 					System.out.println("Error: " + e);
 				}

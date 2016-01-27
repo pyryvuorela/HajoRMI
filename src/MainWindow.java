@@ -1085,11 +1085,13 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
-		try {			
+		try {
+			//Tassa tulee nullpointteri jos kirjautuu jollain ja varaa seka tayttaa siilon ja sit vaihtaa kayttajaa ja painaa SiloLoaderia eika oo varannu yhtaan siiloo
+			System.out.println("Lataajaan painallus tunnistettu");
 			f.startSiloLoadAction(userName.getText());
 			System.out.println("Lataaja valmiustilassa");
 		} catch (Exception e) {
-			System.out.println("Error: " + e);
+			System.out.println("Error tuli koska painajalla ei ollut varausta missaan silossa: " + e);
 		}
         // TODO Mitä tehdään, kun siilojen täytön ruuvikuljetin käynnistetään?
     }//GEN-LAST:event_startSiloLoadActionPerformed
@@ -1342,9 +1344,6 @@ public class MainWindow extends javax.swing.JFrame {
 						silo2Status.setText(f.silo2CurrentAmountUpdate());
 						silo3Status.setText(f.silo3CurrentAmountUpdate());
 						silo4Status.setText(f.silo4CurrentAmountUpdate());
-						proc1Status.setText(f.proc1CurrentUpdate());
-						proc2Status.setText(f.proc2CurrentUpdate());
-						proc3Status.setText(f.proc3CurrentUpdate());
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}

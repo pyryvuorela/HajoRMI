@@ -44,7 +44,9 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public void userLogIn(String userName) throws RemoteException {
 		users.checkLogInRegisterStatus(userName);
 	}	
+	//Tassa tulee nullpointteri jos kirjautuu jollain ja varaa seka tayttaa siilon ja sit vaihtaa kayttajaa ja painaa SiloLoaderia eika oo varannu yhtaan siiloo
 	public void startSiloLoadAction(String user) throws RemoteException {
+		System.out.println("Toimii tahan asti?");
 		 if(silo1.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 			if(!siloLoader.getLoaderisUsed()){
@@ -73,6 +75,9 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					new Thread(silo4).start();
 				}
 		}
+		 else {
+			 System.out.println("Varaa joku siilo, ennen tayttajan kayttoa!");
+		 }
 	}
 	public void reserveSilo1(String user) throws RemoteException {
 			System.out.println("Silo1 varausta painettu");
@@ -288,6 +293,37 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 
 	public String proc3CurrentUpdate() throws RemoteException {
 		return Integer.toString(stove3.getCurrentMaterial());
+	}
+
+
+
+	public String proc1CurrentBatchUpdate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String proc2CurrentBatchUpdate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String proc3CurrentBatchUpdate() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean stove1GetStartPressed() throws RemoteException {
+		return stove1.getStartPressed();
+	}
+
+	public boolean stove2GetStartPressed() throws RemoteException {
+		// TODO Auto-generated method stub
+		return stove2.getStartPressed();
+	}
+
+	public boolean stove3GetStartPressed() throws RemoteException {
+		// TODO Auto-generated method stub
+		return stove3.getStartPressed();
 	}
 	
 

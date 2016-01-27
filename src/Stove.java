@@ -7,21 +7,31 @@ public class Stove implements Runnable{
 	private int currentBatch;
 	private String reservedUser;
 	private String currentUser;
+	private boolean startPressed;
 	
 	public Stove(){
 	this.currentWater = 0;
 	this.currentMaterial = 0;
 	currentBatch = 0;
 	reservedUser = null;
+	this.startPressed = false;
 	}
 	
 	public void run() { 
 		if(reservedUser != null){
 			if(reservedUser.equals(currentUser)){
+				startPressed = true;
 			try {
 				System.out.println("Stove is preparing the batch!");
-				Thread.sleep(5000);
-				currentBatch = currentMaterial * 5;
+				while (currentBatch < currentMaterial * 5){
+					Thread.sleep(1);
+					currentBatch += 2;
+					// Testauksen takia
+					System.out.println(currentBatch);
+				}
+				
+				//Thread.sleep(5000);
+				//currentBatch = currentMaterial * 5;
 				System.out.println("Batch is ready!");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -36,8 +46,9 @@ public class Stove implements Runnable{
 	
 	public void reserveStove(String user){
 		if(reservedUser == null){
-		reservedUser = user;
-		System.out.println("Stove reserved for user: " + reservedUser);
+			startPressed = false;
+			reservedUser = user;
+			System.out.println("Stove reserved for user: " + reservedUser);
 		}else{
 			System.out.println("Stove is already in use!");
 		}
@@ -56,6 +67,7 @@ public class Stove implements Runnable{
 				while (currentMaterial < material + oldCurrentMaterial){					
 					Thread.sleep(1);
 					currentMaterial = currentMaterial + 1;
+					// Testauksen takia
 					System.out.println(currentMaterial);
 				}
 			} catch (Exception e) {
@@ -68,6 +80,9 @@ public class Stove implements Runnable{
 	}
 	public int getCurrentMaterial(){
 		return currentMaterial;
+	}
+	public boolean getStartPressed(){
+		return startPressed;
 	}
 	public int getCurrentBatch(){
 		reservedUser = null;

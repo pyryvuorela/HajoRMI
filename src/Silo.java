@@ -41,8 +41,10 @@ public class Silo implements Runnable {
 	}
 	public void setCurrentUser(String user){
 		if(currentUser == null){
-		currentUser = user;
-		System.out.println("Silo is reserved for user: " + user);
+			System.out.println(currentUser + "TESTI");
+			currentUser = user;
+			System.out.println(currentUser + "TESTI2");
+			System.out.println("Silo is reserved for user: " + user);
 		}
 		else
 			System.out.println("Silo is used by user: " + currentUser);

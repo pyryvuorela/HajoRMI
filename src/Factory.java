@@ -38,6 +38,9 @@ public interface Factory extends Remote {
 	public void reserveTank9(String user) throws RemoteException;
 	public void reserveTank10(String user) throws RemoteException;
 	
+	public void startBottlePump1(String user) throws RemoteException;
+	public void startBottlePump2(String user) throws RemoteException;
+
 	
 	//UPDATER
 

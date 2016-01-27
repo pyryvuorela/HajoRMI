@@ -36,6 +36,12 @@ public class Tank implements Runnable{
 			System.out.println("Tanks is already reserved!");
 		}
 	}
+	public int removeContent(){
+		int content = currentAmount;
+		currentAmount = 0;
+		return content;
+		
+	}
 
 
 	

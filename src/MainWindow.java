@@ -1240,11 +1240,21 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startPump2ActionPerformed
 
     private void startBpump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump1ActionPerformed
-        // TODO Mitä tehdään kun pumppu1 pullotukseen käynnistetään?
+        try {
+			f.startBottlePump1(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun pumppu1 pullotukseen käynnistetään?
     }//GEN-LAST:event_startBpump1ActionPerformed
 
     private void startBpump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump2ActionPerformed
-        // TODO Mitä tehdään kun pumppu2 pullotukseen käynnistetään?
+       try {
+		f.startBottlePump2(userName.getText());
+	} catch (RemoteException e) {
+		e.printStackTrace();
+	}
+    	// TODO Mitä tehdään kun pumppu2 pullotukseen käynnistetään?
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed

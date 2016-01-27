@@ -1344,6 +1344,10 @@ public class MainWindow extends javax.swing.JFrame {
 						silo2Status.setText(f.silo2CurrentAmountUpdate());
 						silo3Status.setText(f.silo3CurrentAmountUpdate());
 						silo4Status.setText(f.silo4CurrentAmountUpdate());
+						
+						proc1Status.setText(f.proc1CurrentUpdate());		
+						proc2Status.setText(f.proc2CurrentUpdate());		
+						proc3Status.setText(f.proc3CurrentUpdate());
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}

@@ -3,19 +3,19 @@ public class SiloLoader implements Runnable{
 	private boolean loaderIsUsed;
 	
 	public SiloLoader() {
-		currentUser = null;
+		currentUser = "";
 		loaderIsUsed = false;
 	}
 
 	public void run() {
 
-		if(currentUser != null){
+		if(currentUser != ""){
 			if(!loaderIsUsed){
 				loaderIsUsed = true;
 				try{
 					System.out.println("Kuljetin pumppaa 200 kg/s");
 					Thread.sleep(5000);
-					currentUser = null;
+					currentUser = "";
 					loaderIsUsed = false;
 					System.out.println("Kuljetin valmis!");
 				} catch (Exception e) {
@@ -33,7 +33,7 @@ public class SiloLoader implements Runnable{
 	}
 
 	public void setCurrentUser(String user) {
-		if(currentUser == null)
+		if(currentUser == "")
 		this.currentUser = user;
 		else
 			System.out.println("Loader is already in use by user: " + currentUser);

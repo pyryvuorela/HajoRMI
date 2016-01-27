@@ -1222,16 +1222,21 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startProc3ActionPerformed
 
     private void startPump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump1ActionPerformed
-       try {
-		f.startPump1(userName.getText());
-	} catch (RemoteException e) {
-		e.printStackTrace();
-	}
-    	// TODO Mitä tehdään kun pumppu1 käynnistetään?
+    	try {
+			f.startPump1(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    // TODO Mitä tehdään kun pumppu1 käynnistetään?
     }//GEN-LAST:event_startPump1ActionPerformed
 
     private void startPump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump2ActionPerformed
-        // TODO Mitä tehdään kun pumppu2 käynnistetään?
+    	try {
+			f.startPump2(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun pumppu2 käynnistetään?
     }//GEN-LAST:event_startPump2ActionPerformed
 
     private void startBpump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump1ActionPerformed
@@ -1243,48 +1248,92 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed
-      try {
-		f.reserveTank1(userName.getText());
-	} catch (RemoteException e) {
-		e.printStackTrace();
-	}
+    	try {
+			f.reserveTank1(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
     	// TODO Mitä tehdään kun säiliö1 varataan?
     }//GEN-LAST:event_reserveTank1ActionPerformed
 
     private void reserveTank2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank2ActionPerformed
-        // TODO Mitä tehdään kun säiliö2 varataan?
+       	try {
+			f.reserveTank2(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}// TODO Mitä tehdään kun säiliö2 varataan?
     }//GEN-LAST:event_reserveTank2ActionPerformed
 
     private void reserveTank3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank3ActionPerformed
-        // TODO Mitä tehdään kun säiliö3 varataan?
+    	try {
+			f.reserveTank3(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö3 varataan?
     }//GEN-LAST:event_reserveTank3ActionPerformed
 
     private void reserveTank4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank4ActionPerformed
-        // TODO Mitä tehdään kun säiliö4 varataan?
+    	try {
+			f.reserveTank4(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö4 varataan?
     }//GEN-LAST:event_reserveTank4ActionPerformed
 
     private void reserveTank5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank5ActionPerformed
-        // TODO Mitä tehdään kun säiliö5 varataan?
+    	try {
+			f.reserveTank5(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö5 varataan?
     }//GEN-LAST:event_reserveTank5ActionPerformed
 
     private void reserveTank6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank6ActionPerformed
-        // TODO Mitä tehdään kun säiliö6 varataan?
+    	try {
+			f.reserveTank6(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö6 varataan?
     }//GEN-LAST:event_reserveTank6ActionPerformed
 
     private void reserveTank7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank7ActionPerformed
-        // TODO Mitä tehdään kun säiliö7 varataan?
+    	try {
+			f.reserveTank7(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö7 varataan?
     }//GEN-LAST:event_reserveTank7ActionPerformed
 
     private void reserveTank8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank8ActionPerformed
-        // TODO Mitä tehdään kun säiliö8 varataan?
+    	try {
+			f.reserveTank8(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö8 varataan?
     }//GEN-LAST:event_reserveTank8ActionPerformed
 
     private void reserveTank9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank9ActionPerformed
-        // TODO Mitä tehdään kun säiliö9 varataan?
+    	try {
+			f.reserveTank9(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö9 varataan?
     }//GEN-LAST:event_reserveTank9ActionPerformed
 
     private void reserveTank10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank10ActionPerformed
-        // TODO Mitä tehdään kun säiliö10 varataan?
+    	try {
+			f.reserveTank10(userName.getText());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+    	// TODO Mitä tehdään kun säiliö10 varataan?
     }//GEN-LAST:event_reserveTank10ActionPerformed
 
     private void procLoadAmount2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procLoadAmount2ActionPerformed

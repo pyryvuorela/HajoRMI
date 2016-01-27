@@ -13,12 +13,12 @@ public class Stove implements Runnable{
 	this.currentWater = 0;
 	this.currentMaterial = 0;
 	currentBatch = 0;
-	reservedUser = null;
+	reservedUser = "";
 	this.startPressed = false;
 	}
 	
 	public void run() { 
-		if(reservedUser != null){
+		if(reservedUser != ""){
 			if(reservedUser.equals(currentUser)){
 				startPressed = true;
 			try {
@@ -45,7 +45,7 @@ public class Stove implements Runnable{
 	}
 	
 	public void reserveStove(String user){
-		if(reservedUser == null){
+		if(reservedUser == ""){
 			startPressed = false;
 			reservedUser = user;
 			System.out.println("Stove reserved for user: " + reservedUser);
@@ -85,8 +85,8 @@ public class Stove implements Runnable{
 		return startPressed;
 	}
 	public int getCurrentBatch(){
-		reservedUser = null;
-		currentUser = null;
+		reservedUser = "";
+		currentUser = "";
 		return currentBatch;
 	}
 

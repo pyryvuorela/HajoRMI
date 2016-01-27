@@ -1,5 +1,5 @@
 
-public class Tank{
+public class Tank implements Runnable{
 	private final int MAXCAPACITY = 10000;
 	private int currentAmount;
 	private boolean tankReadyToUse;
@@ -8,8 +8,12 @@ public class Tank{
 	public Tank(){
 		this.currentAmount = 0;
 		tankReadyToUse = true;
-		reservedUser = null;
+		reservedUser = "";
 	}
+	public void run() {
+		
+	}
+	
 
 	public int getCurrentAmount(){
 		return currentAmount;
@@ -25,14 +29,15 @@ public class Tank{
 		return reservedUser;
 	}
 	public void setReservedUser(String user) {
-		if(reservedUser == null){
+		if(reservedUser == ""){
 		this.reservedUser = user;
 		System.out.println("Tank is reserved for user: " + reservedUser);
 		}else{
 			System.out.println("Tanks is already reserved!");
 		}
 	}
-	
+
+
 	
 
 }

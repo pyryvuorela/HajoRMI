@@ -8,11 +8,11 @@ public class Silo implements Runnable {
 	
 	public Silo(){
 		currentAmount = 10;
-		currentUser = null;
+		currentUser = "";
 	}
 
 	public void run(){
-		if(currentUser != null){
+		if(currentUser != ""){
 					System.out.println("Siloloader is reserved for this silo!");
 					try {
 						while (currentAmount < capacity){
@@ -31,7 +31,7 @@ public class Silo implements Runnable {
 	public void removeSilosContent(int amount){
 		if(amount <= currentAmount && amount <= 2000){
 		currentAmount -= amount;
-		currentUser = null;
+		currentUser = "";
 		}
 		else
 			System.out.println("Not enought content!");
@@ -40,7 +40,7 @@ public class Silo implements Runnable {
 		return currentAmount;
 	}
 	public void setCurrentUser(String user){
-		if(currentUser == null){
+		if(currentUser == ""){
 			System.out.println(currentUser + "TESTI");
 			currentUser = user;
 			System.out.println(currentUser + "TESTI2");

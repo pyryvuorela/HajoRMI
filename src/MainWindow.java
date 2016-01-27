@@ -1086,9 +1086,8 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
 		try {
-			//Tassa tulee nullpointteri jos kirjautuu jollain ja varaa seka tayttaa siilon ja sit vaihtaa kayttajaa ja painaa SiloLoaderia eika oo varannu yhtaan siiloo
 			System.out.println("Lataajaan painallus tunnistettu");
-			f.startSiloLoadAction(userName.getText());
+			f.startSiloLoadAction(userNameLabel.getText());
 			System.out.println("Lataaja valmiustilassa");
 		} catch (Exception e) {
 			System.out.println("Error tuli koska painajalla ei ollut varausta missaan silossa: " + e);
@@ -1097,8 +1096,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startSiloLoadActionPerformed
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
     	try {
-			f.userLogIn(userName.getText());
-			userNameLabel.setText(userName.getText());
+    		if (!userName.getText().equals("")){
+    			f.userLogIn(userName.getText());
+    			userNameLabel.setText(userName.getText());    			
+    		}else{
+    			System.out.println("Anna jokin nimi!");
+    		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -1108,7 +1111,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
     	try {
-			f.startUnloader1(Integer.parseInt(procLoadAmount1.getText()),userName.getText());
+			f.startUnloader1(Integer.parseInt(procLoadAmount1.getText()),userNameLabel.getText());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -1117,7 +1120,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProcLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad2ActionPerformed
     	try {
-    		f.startUnloader2(Integer.parseInt(procLoadAmount2.getText()), userName.getText());
+    		f.startUnloader2(Integer.parseInt(procLoadAmount2.getText()), userNameLabel.getText());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -1126,7 +1129,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo1ActionPerformed
     	try {
-	    		f.reserveSilo1(userName.getText());
+	    		f.reserveSilo1(userNameLabel.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo1.setSelected(false);
 		} catch (Exception e) {
@@ -1137,7 +1140,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo2ActionPerformed
     	try {
-	    		f.reserveSilo2(userName.getText());
+	    		f.reserveSilo2(userNameLabel.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo2.setSelected(false);
        } catch (Exception e) {
@@ -1148,7 +1151,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo3ActionPerformed
     	try {
-	    		f.reserveSilo3(userName.getText());
+	    		f.reserveSilo3(userNameLabel.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo3.setSelected(false);
 		} catch (Exception e) {
@@ -1159,7 +1162,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveSilo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveSilo4ActionPerformed
     	try {
-	    		f.reserveSilo4(userName.getText());
+	    		f.reserveSilo4(userNameLabel.getText());
 	    		startSiloLoad.setSelected(false);
 	    		reserveSilo4.setSelected(false);
 		} catch (Exception e) {
@@ -1179,7 +1182,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
         try {
-    		f.startStove1(userName.getText());
+    		f.startStove1(userNameLabel.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -1196,7 +1199,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
         try {
-    		f.startStove1(userName.getText());
+    		f.startStove1(userNameLabel.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -1214,7 +1217,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
        try {
-    		f.startStove1(userName.getText());
+    		f.startStove1(userNameLabel.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -1223,7 +1226,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startPump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump1ActionPerformed
     	try {
-			f.startPump1(userName.getText());
+			f.startPump1(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1232,7 +1235,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startPump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump2ActionPerformed
     	try {
-			f.startPump2(userName.getText());
+			f.startPump2(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1241,7 +1244,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startBpump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump1ActionPerformed
         try {
-			f.startBottlePump1(userName.getText());
+			f.startBottlePump1(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1250,7 +1253,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startBpump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump2ActionPerformed
        try {
-		f.startBottlePump2(userName.getText());
+		f.startBottlePump2(userNameLabel.getText());
 	} catch (RemoteException e) {
 		e.printStackTrace();
 	}
@@ -1259,7 +1262,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed
     	try {
-			f.reserveTank1(userName.getText());
+			f.reserveTank1(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1268,7 +1271,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank2ActionPerformed
        	try {
-			f.reserveTank2(userName.getText());
+			f.reserveTank2(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}// TODO Mitä tehdään kun säiliö2 varataan?
@@ -1276,7 +1279,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank3ActionPerformed
     	try {
-			f.reserveTank3(userName.getText());
+			f.reserveTank3(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1285,7 +1288,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank4ActionPerformed
     	try {
-			f.reserveTank4(userName.getText());
+			f.reserveTank4(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1294,7 +1297,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank5ActionPerformed
     	try {
-			f.reserveTank5(userName.getText());
+			f.reserveTank5(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1303,7 +1306,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank6ActionPerformed
     	try {
-			f.reserveTank6(userName.getText());
+			f.reserveTank6(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1312,7 +1315,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank7ActionPerformed
     	try {
-			f.reserveTank7(userName.getText());
+			f.reserveTank7(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1321,7 +1324,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank8ActionPerformed
     	try {
-			f.reserveTank8(userName.getText());
+			f.reserveTank8(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1330,7 +1333,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank9ActionPerformed
     	try {
-			f.reserveTank9(userName.getText());
+			f.reserveTank9(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1339,7 +1342,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void reserveTank10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank10ActionPerformed
     	try {
-			f.reserveTank10(userName.getText());
+			f.reserveTank10(userNameLabel.getText());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -1415,7 +1418,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     Thread updater = new Thread(new Updater());
     updater.start();
-    
     }
     private static Factory f; 
 

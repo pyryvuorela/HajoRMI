@@ -12,22 +12,22 @@ public class Stove implements Runnable{
 	public Stove(){
 	this.currentWater = 0;
 	this.currentMaterial = 0;
-	currentBatch = 0;
-	reservedUser = "";
+	this.currentBatch = 0;
+	this.reservedUser = "";
 	this.startPressed = false;
 	}
 	
 	public void run() { 
-		if(reservedUser != ""){
-			if(reservedUser.equals(currentUser)){
-				startPressed = true;
+		if(this.reservedUser != ""){
+			if(this.reservedUser.equals(this.currentUser)){
+				this.startPressed = true;
 			try {
 				System.out.println("Stove is preparing the batch!");
-				while (currentBatch < currentMaterial * 5){
+				while (this.currentBatch < this.currentMaterial * 5){
 					Thread.sleep(1);
-					currentBatch += 2;
+					this.currentBatch += 2;
 					// Testauksen takia
-					System.out.println(currentBatch);
+					System.out.println(this.currentBatch);
 				}
 				
 				//Thread.sleep(5000);
@@ -45,49 +45,49 @@ public class Stove implements Runnable{
 	}
 	
 	public void reserveStove(String user){
-		if(reservedUser == ""){
-			startPressed = false;
-			reservedUser = user;
-			System.out.println("Stove reserved for user: " + reservedUser);
+		if(this.reservedUser == ""){
+			this.startPressed = false;
+			this.reservedUser = user;
+			System.out.println("Stove reserved for user: " + this.reservedUser);
 		}else{
 			System.out.println("Stove is already in use!");
 		}
 	}
 	public void setCurrentUser(String current){
-		currentUser = current;
+		this.currentUser = current;
 	}
 	public String getReservedUser(){
-		return reservedUser;
+		return this.reservedUser;
 	}
 	public void setMaterialAmount(int material){
-		if(material + currentMaterial <= maxMaterialCapacity){
+		if(material + this.currentMaterial <= this.maxMaterialCapacity){
 			//int sleepTime = 1000*(material/200);
-			int oldCurrentMaterial = currentMaterial;
+			int oldCurrentMaterial = this.currentMaterial;
 			try {
-				while (currentMaterial < material + oldCurrentMaterial){					
+				while (this.currentMaterial < material + oldCurrentMaterial){					
 					Thread.sleep(1);
-					currentMaterial = currentMaterial + 1;
+					this.currentMaterial = this.currentMaterial + 1;
 					// Testauksen takia
-					System.out.println(currentMaterial);
+					System.out.println(this.currentMaterial);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		System.out.println("Material added! Current amount is: "+ currentMaterial);
+		System.out.println("Material added! Current amount is: "+ this.currentMaterial);
 		}		
 		else
 			System.out.println("Too much material!");
 	}
 	public int getCurrentMaterial(){
-		return currentMaterial;
+		return this.currentMaterial;
 	}
 	public boolean getStartPressed(){
-		return startPressed;
+		return this.startPressed;
 	}
 	public int getCurrentBatch(){
-		reservedUser = "";
-		currentUser = "";
-		return currentBatch;
+		this.reservedUser = "";
+		this.currentUser = "";
+		return this.currentBatch;
 	}
 
 

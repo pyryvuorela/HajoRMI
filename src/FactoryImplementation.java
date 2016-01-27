@@ -68,13 +68,14 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 
 	public void userLogIn(String userName) throws RemoteException {
 		users.checkLogInRegisterStatus(userName);
-	}	
-	//Tassa tulee nullpointteri jos kirjautuu jollain ja varaa seka tayttaa siilon ja sit vaihtaa kayttajaa ja painaa SiloLoaderia eika oo varannu yhtaan siiloo
+	}
 	public void startSiloLoadAction(String user) throws RemoteException {
 		System.out.println("Toimii tahan asti?");
-		 if(silo1.getCurrentUser().equals(user)){
+		 
+		if(silo1.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
-			if(!siloLoader.getLoaderisUsed()){
+				if(!siloLoader.getLoaderisUsed()){
+					siloLoader.setLoadTime((silo1.getCapacity() - silo1.getCurrentAmount()) / 2);
 					new Thread(siloLoader).start();
 					new Thread(silo1).start();
 			}
@@ -82,6 +83,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		 else if(silo2.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 				if(!siloLoader.getLoaderisUsed()){
+					siloLoader.setLoadTime((silo2.getCapacity() - silo2.getCurrentAmount()) / 2);
 					new Thread(siloLoader).start();
 					new Thread(silo2).start();
 				}
@@ -89,6 +91,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		 else if(silo3.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 				if(!siloLoader.getLoaderisUsed()){
+					siloLoader.setLoadTime((silo3.getCapacity() - silo3.getCurrentAmount()) / 2);
 					new Thread(siloLoader).start();
 					new Thread(silo3).start();
 				}
@@ -96,6 +99,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		 else if(silo4.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 				if(!siloLoader.getLoaderisUsed()){
+					siloLoader.setLoadTime((silo4.getCapacity() - silo4.getCurrentAmount()) / 2);
 					new Thread(siloLoader).start();
 					new Thread(silo4).start();
 				}

@@ -7,19 +7,20 @@ public class Silo implements Runnable {
 	
 	
 	public Silo(){
-		currentAmount = 10;
-		currentUser = "";
+		this.currentAmount = 10;
+		this.currentUser = "";
 	}
 
 	public void run(){
-		if(currentUser != ""){
+		if(this.currentUser != ""){
 					System.out.println("Siloloader is reserved for this silo!");
 					try {
-						while (currentAmount < capacity){
+						while (this.currentAmount < this.capacity){
 							Thread.sleep(1);
-							currentAmount = currentAmount + 2;
+							this.currentAmount = this.currentAmount + 2;
 						}
 						System.out.println("Silo is full!");
+						this.removeCurrentUser();
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -29,26 +30,32 @@ public class Silo implements Runnable {
 	}
 	
 	public void removeSilosContent(int amount){
-		if(amount <= currentAmount && amount <= 2000){
-		currentAmount -= amount;
-		currentUser = "";
+		if(amount <= this.currentAmount && amount <= 2000){
+		this.currentAmount -= amount;
+		this.currentUser = "";
 		}
 		else
 			System.out.println("Not enought content!");
 	}
 	public int getCurrentAmount(){
-		return currentAmount;
+		return this.currentAmount;
 	}
 	public void setCurrentUser(String user){
-		if(currentUser == ""){
-			currentUser = user;
+		if(this.currentUser == ""){
+			this.currentUser = user;
 			System.out.println("Silo is reserved for user: " + user);
 		}
 		else
-			System.out.println("Silo is used by user: " + currentUser);
+			System.out.println("Silo is used by user: " + this.currentUser);
 	}
 	public String getCurrentUser(){
-		return currentUser;		
+		return this.currentUser;		
+	}
+	public void removeCurrentUser(){
+		this.currentUser = "";
+	}
+	public int getCapacity(){
+		return this.capacity;
 	}
 	
 }

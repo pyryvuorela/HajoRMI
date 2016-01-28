@@ -136,155 +136,192 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startStove1(String user) throws RemoteException {
 		stove1.setCurrentUser(user);
+		stove1.setBatching(true);
 		new Thread(stove1).start();
 	}
 	public void startStove2(String user) throws RemoteException {
 		stove2.setCurrentUser(user);
+		stove2.setBatching(true);
 		new Thread(stove2).start();
 	}
 	public void startStove3(String user) throws RemoteException {
 		stove3.setCurrentUser(user);
+		stove3.setBatching(true);
 		new Thread(stove3).start();
 	}
 	
 	public void startUnloader1(int amount, String user) throws RemoteException {
+		if(!unloader1.isUsed()){
+			new Thread(unloader1).start();
 		if(silo1.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
 		}
 		else if(silo2.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
 		}
 		else if(silo3.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
 		}
 		else if(silo4.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
-				unloader1.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
+		}
+		}else{
+			System.out.println("Unloader is already in use!");
 		}
 	}
 	public void startUnloader2(int amount, String user) throws RemoteException {
+		if(!unloader2.isUsed()){
+			new Thread(unloader2).start();
 		if(silo1.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
 		}
 		else if(silo2.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
 		}
 		else if(silo3.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
 		}
 		else if(silo4.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove1.setMaterialAmount(amount);
+				stove1.setBatching(false);
+				new Thread(stove1).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove2.setMaterialAmount(amount);
+				stove2.setBatching(false);
+				new Thread(stove2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
-				unloader2.setUnloadAmount(amount);
 				stove3.setMaterialAmount(amount);
+				stove3.setBatching(false);
+				new Thread(stove3).start();
 			}
+		}
+		}else{
+			System.out.println("Unloader is already in use!");
 		}
 	}
 

@@ -1400,6 +1400,11 @@ public class MainWindow extends javax.swing.JFrame {
     
         class Updater implements Runnable{        	
         	public void run(){
+        		try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
         		while(true){
         			try {
 						silo1Status.setText(f.silo1CurrentAmountUpdate());

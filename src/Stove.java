@@ -25,9 +25,11 @@ public class Stove implements Runnable{
 					this.startPressed = true;
 					try {
 						System.out.println("Stove is preparing the batch!");
-						while (this.currentBatch < this.currentMaterial * 5){
+						currentBatch = currentMaterial;
+						while (this.currentBatch < maxWaterCapacity){
 							Thread.sleep(1);
 							this.currentBatch += 2;
+							this.currentMaterial += 2;
 						}
 						System.out.println("Batch is ready!");
 						batching = false;

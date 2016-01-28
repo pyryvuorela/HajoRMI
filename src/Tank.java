@@ -34,6 +34,7 @@ public class Tank implements Runnable{
 				}
 			}
 			System.out.println("Tanks current amount is: " + currentAmount);
+			reservedUser = "";
 		}		
 	}
 	

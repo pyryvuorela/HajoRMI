@@ -906,4 +906,14 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public String tank10CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank10.getCurrentAmount());
 	}
+
+	public String stove1CurrentUserUpdate() throws RemoteException {
+		return stove1.getReservedUser();
+	}
+	public String stove2CurrentUserUpdate() throws RemoteException {
+		return stove2.getReservedUser();
+	}
+	public String stove3CurrentUserUpdate() throws RemoteException {
+		return stove3.getReservedUser();
+	}
 }

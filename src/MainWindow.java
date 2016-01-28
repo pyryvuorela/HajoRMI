@@ -1427,6 +1427,10 @@ public class MainWindow extends javax.swing.JFrame {
 						tank9Status.setText(f.tank9CurrentAmountUpdate());
 						tank10Status.setText(f.tank10CurrentAmountUpdate());
 						
+						proc1User.setText(f.stove1CurrentUserUpdate());
+						proc2User.setText(f.stove2CurrentUserUpdate());
+						proc3User.setText(f.stove3CurrentUserUpdate());
+						
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}
@@ -1448,13 +1452,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel proc1Label;
     private static javax.swing.JLabel proc1Status;
-    private javax.swing.JLabel proc1User;
+    private static javax.swing.JLabel proc1User;
     private javax.swing.JLabel proc2Label;
     private static javax.swing.JLabel proc2Status;
-    private javax.swing.JLabel proc2User;
+    private static javax.swing.JLabel proc2User;
     private javax.swing.JLabel proc3Label;
     private static javax.swing.JLabel proc3Status;
-    private javax.swing.JLabel proc3User;
+    private static javax.swing.JLabel proc3User;
     private javax.swing.JTextField procLoadAmount1;
     private javax.swing.JTextField procLoadAmount2;
     private javax.swing.JLabel procLoadConvStatus2;

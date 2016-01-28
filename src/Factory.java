@@ -71,6 +71,11 @@ public interface Factory extends Remote {
 	public String tank8CurrentAmountUpdate() throws RemoteException;
 	public String tank9CurrentAmountUpdate() throws RemoteException;
 	public String tank10CurrentAmountUpdate() throws RemoteException;
+	
+	public String stove1CurrentUserUpdate() throws RemoteException;
+	public String stove2CurrentUserUpdate() throws RemoteException;
+	public String stove3CurrentUserUpdate() throws RemoteException;
+
 
 
 

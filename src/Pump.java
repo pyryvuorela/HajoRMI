@@ -13,19 +13,24 @@ public class Pump implements Runnable{
 	public void run() {
 		if(!isUsed){
 			isUsed = true;
-		try {
-			System.out.println("Pumping started!");
-			int sleepTime = 1000*(movedAmount/PUMPSPEED);
-			Thread.sleep(sleepTime);
-			isUsed = false;
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}}else{
-			System.out.println("Pump is already used!");
+			System.out.println("Pump is in action!");
+			while(movedAmount > 0){
+				movedAmount -= 2;
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		isUsed = false;
+		System.out.println("Pump is ready for use!");
 		}
 	}	
 	public void setMovedAmount(int amount){
 		this.movedAmount = amount;
+	}
+	public boolean getIsUsed(){
+		return isUsed;
 	}
 
 }

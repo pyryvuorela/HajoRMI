@@ -326,200 +326,346 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 
 	public void startPump1(String user) throws RemoteException {
+		if(!pump1.getIsUsed()){			
 		if(stove1.getReservedUser().equals(user)){
+			pump1.setMovedAmount(stove1.getCurrentBatch());
+			new Thread(pump1).start();
+			
 			if(tank1.getReservedUser().equals(user)){
-				tank1.setCurrentAmount(stove1.getCurrentBatch());
+				tank1.setInmcomingAmount(stove1.getCurrentBatch());
+				tank1.setReceiving(true);
+				new Thread(tank1).start();
 			}	
 			else if(tank2.getReservedUser().equals(user)){
-				tank2.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank2.setInmcomingAmount(stove1.getCurrentBatch());
+				tank2.setReceiving(true);
+				new Thread(tank1).start();			
+				}
 			else if(tank3.getReservedUser().equals(user)){
-				tank3.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank3.setInmcomingAmount(stove1.getCurrentBatch());
+				tank3.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank4.getReservedUser().equals(user)){
-				tank4.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank4.setInmcomingAmount(stove1.getCurrentBatch());
+				tank4.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank5.getReservedUser().equals(user)){
-				tank5.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank5.setInmcomingAmount(stove1.getCurrentBatch());
+				tank5.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank6.getReservedUser().equals(user)){
-				tank6.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank6.setInmcomingAmount(stove1.getCurrentBatch());
+				tank6.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank7.getReservedUser().equals(user)){
-				tank7.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank7.setInmcomingAmount(stove1.getCurrentBatch());
+				tank7.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank8.getReservedUser().equals(user)){
-				tank8.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank8.setInmcomingAmount(stove1.getCurrentBatch());
+				tank8.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank9.getReservedUser().equals(user)){
-				tank9.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank9.setInmcomingAmount(stove1.getCurrentBatch());
+				tank9.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank10.getReservedUser().equals(user)){
-				tank10.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank10.setInmcomingAmount(stove1.getCurrentBatch());
+				tank10.setReceiving(true);
+				new Thread(tank1).start();
+				}
 		}
 		else if(stove2.getReservedUser().equals(user)){
+			pump1.setMovedAmount(stove2.getCurrentBatch());
+			new Thread(pump1).start();
+			
 			if(tank1.getReservedUser().equals(user)){
-				tank1.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank1.setInmcomingAmount(stove1.getCurrentBatch());
+				tank1.setReceiving(true);
+				new Thread(tank1).start();
+				}	
 			else if(tank2.getReservedUser().equals(user)){
-				tank2.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank2.setInmcomingAmount(stove1.getCurrentBatch());
+				tank2.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank3.getReservedUser().equals(user)){
-				tank3.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank3.setInmcomingAmount(stove1.getCurrentBatch());
+				tank3.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank4.getReservedUser().equals(user)){
-				tank4.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank4.setInmcomingAmount(stove1.getCurrentBatch());
+				tank4.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank5.getReservedUser().equals(user)){
-				tank5.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank5.setInmcomingAmount(stove1.getCurrentBatch());
+				tank5.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank6.getReservedUser().equals(user)){
-				tank6.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank6.setInmcomingAmount(stove1.getCurrentBatch());
+				tank6.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank7.getReservedUser().equals(user)){
-				tank7.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank7.setInmcomingAmount(stove1.getCurrentBatch());
+				tank7.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank8.getReservedUser().equals(user)){
-				tank8.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank8.setInmcomingAmount(stove1.getCurrentBatch());
+				tank8.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank9.getReservedUser().equals(user)){
-				tank9.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank9.setInmcomingAmount(stove1.getCurrentBatch());
+				tank9.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank10.getReservedUser().equals(user)){
-				tank10.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank10.setInmcomingAmount(stove1.getCurrentBatch());
+				tank10.setReceiving(true);
+				new Thread(tank1).start();	
+				}	
 		}
 		else if(stove3.getReservedUser().equals(user)){
+			pump1.setMovedAmount(stove3.getCurrentBatch());
+			new Thread(pump1).start();
+			
 			if(tank1.getReservedUser().equals(user)){
-				tank1.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank1.setInmcomingAmount(stove1.getCurrentBatch());
+				tank1.setReceiving(true);
+				new Thread(tank1).start();	
+				}	
 			else if(tank2.getReservedUser().equals(user)){
-				tank2.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank2.setInmcomingAmount(stove1.getCurrentBatch());
+				tank2.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank3.getReservedUser().equals(user)){
-				tank3.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank3.setInmcomingAmount(stove1.getCurrentBatch());
+				tank3.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank4.getReservedUser().equals(user)){
-				tank4.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank4.setInmcomingAmount(stove1.getCurrentBatch());
+				tank4.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank5.getReservedUser().equals(user)){
-				tank5.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank5.setInmcomingAmount(stove1.getCurrentBatch());
+				tank5.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank6.getReservedUser().equals(user)){
-				tank6.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank6.setInmcomingAmount(stove1.getCurrentBatch());
+				tank6.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank7.getReservedUser().equals(user)){
-				tank7.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank7.setInmcomingAmount(stove1.getCurrentBatch());
+				tank7.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank8.getReservedUser().equals(user)){
-				tank8.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank8.setInmcomingAmount(stove1.getCurrentBatch());
+				tank8.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank9.getReservedUser().equals(user)){
-				tank9.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank9.setInmcomingAmount(stove1.getCurrentBatch());
+				tank9.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank10.getReservedUser().equals(user)){
-				tank10.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank10.setInmcomingAmount(stove1.getCurrentBatch());
+				tank10.setReceiving(true);
+				new Thread(tank1).start();	
+				}	
+		}
+		}else{
+			System.out.println("Pump 1 is already in use!");
 		}
 	}
 	public void startPump2(String user) throws RemoteException {
+		if(!pump2.getIsUsed()){
 		if(stove1.getReservedUser().equals(user)){
+			pump2.setMovedAmount(stove1.getCurrentBatch());
+			new Thread(pump2).start();
+
 			if(tank1.getReservedUser().equals(user)){
-				tank1.setCurrentAmount(stove1.getCurrentBatch());
+				tank1.setInmcomingAmount(stove1.getCurrentBatch());
+				tank1.setReceiving(true);
+				new Thread(tank1).start();
 			}	
 			else if(tank2.getReservedUser().equals(user)){
-				tank2.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank2.setInmcomingAmount(stove1.getCurrentBatch());
+				tank2.setReceiving(true);
+				new Thread(tank1).start();			
+				}
 			else if(tank3.getReservedUser().equals(user)){
-				tank3.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank3.setInmcomingAmount(stove1.getCurrentBatch());
+				tank3.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank4.getReservedUser().equals(user)){
-				tank4.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank4.setInmcomingAmount(stove1.getCurrentBatch());
+				tank4.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank5.getReservedUser().equals(user)){
-				tank5.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank5.setInmcomingAmount(stove1.getCurrentBatch());
+				tank5.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank6.getReservedUser().equals(user)){
-				tank6.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank6.setInmcomingAmount(stove1.getCurrentBatch());
+				tank6.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank7.getReservedUser().equals(user)){
-				tank7.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank7.setInmcomingAmount(stove1.getCurrentBatch());
+				tank7.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank8.getReservedUser().equals(user)){
-				tank8.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank8.setInmcomingAmount(stove1.getCurrentBatch());
+				tank8.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank9.getReservedUser().equals(user)){
-				tank9.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank9.setInmcomingAmount(stove1.getCurrentBatch());
+				tank9.setReceiving(true);
+				new Thread(tank1).start();
+				}
 			else if(tank10.getReservedUser().equals(user)){
-				tank10.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank10.setInmcomingAmount(stove1.getCurrentBatch());
+				tank10.setReceiving(true);
+				new Thread(tank1).start();
+				}
 		}
 		else if(stove2.getReservedUser().equals(user)){
+			pump2.setMovedAmount(stove2.getCurrentBatch());
+			new Thread(pump2).start();
+			
 			if(tank1.getReservedUser().equals(user)){
-				tank1.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank1.setInmcomingAmount(stove1.getCurrentBatch());
+				tank1.setReceiving(true);
+				new Thread(tank1).start();
+				}	
 			else if(tank2.getReservedUser().equals(user)){
-				tank2.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank2.setInmcomingAmount(stove1.getCurrentBatch());
+				tank2.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank3.getReservedUser().equals(user)){
-				tank3.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank3.setInmcomingAmount(stove1.getCurrentBatch());
+				tank3.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank4.getReservedUser().equals(user)){
-				tank4.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank4.setInmcomingAmount(stove1.getCurrentBatch());
+				tank4.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank5.getReservedUser().equals(user)){
-				tank5.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank5.setInmcomingAmount(stove1.getCurrentBatch());
+				tank5.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank6.getReservedUser().equals(user)){
-				tank6.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank6.setInmcomingAmount(stove1.getCurrentBatch());
+				tank6.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank7.getReservedUser().equals(user)){
-				tank7.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank7.setInmcomingAmount(stove1.getCurrentBatch());
+				tank7.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank8.getReservedUser().equals(user)){
-				tank8.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank8.setInmcomingAmount(stove1.getCurrentBatch());
+				tank8.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank9.getReservedUser().equals(user)){
-				tank9.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank9.setInmcomingAmount(stove1.getCurrentBatch());
+				tank9.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank10.getReservedUser().equals(user)){
-				tank10.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank10.setInmcomingAmount(stove1.getCurrentBatch());
+				tank10.setReceiving(true);
+				new Thread(tank1).start();	
+				}	
 		}
 		else if(stove3.getReservedUser().equals(user)){
+			pump2.setMovedAmount(stove3.getCurrentBatch());
+			new Thread(pump2).start();
+			
 			if(tank1.getReservedUser().equals(user)){
-				tank1.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank1.setInmcomingAmount(stove1.getCurrentBatch());
+				tank1.setReceiving(true);
+				new Thread(tank1).start();	
+				}	
 			else if(tank2.getReservedUser().equals(user)){
-				tank2.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank2.setInmcomingAmount(stove1.getCurrentBatch());
+				tank2.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank3.getReservedUser().equals(user)){
-				tank3.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank3.setInmcomingAmount(stove1.getCurrentBatch());
+				tank3.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank4.getReservedUser().equals(user)){
-				tank4.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank4.setInmcomingAmount(stove1.getCurrentBatch());
+				tank4.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank5.getReservedUser().equals(user)){
-				tank5.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank5.setInmcomingAmount(stove1.getCurrentBatch());
+				tank5.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank6.getReservedUser().equals(user)){
-				tank6.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank6.setInmcomingAmount(stove1.getCurrentBatch());
+				tank6.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank7.getReservedUser().equals(user)){
-				tank7.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank7.setInmcomingAmount(stove1.getCurrentBatch());
+				tank7.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank8.getReservedUser().equals(user)){
-				tank8.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank8.setInmcomingAmount(stove1.getCurrentBatch());
+				tank8.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank9.getReservedUser().equals(user)){
-				tank9.setCurrentAmount(stove1.getCurrentBatch());
-			}
+				tank9.setInmcomingAmount(stove1.getCurrentBatch());
+				tank9.setReceiving(true);
+				new Thread(tank1).start();	
+				}
 			else if(tank10.getReservedUser().equals(user)){
-				tank10.setCurrentAmount(stove1.getCurrentBatch());
-			}	
+				tank10.setInmcomingAmount(stove1.getCurrentBatch());
+				tank10.setReceiving(true);
+				new Thread(tank1).start();	
+				}	
 		}
+	}else{
+		System.out.println("Pump 1 is already in use!");
+	}
 	}
 	public void startBottlePump1(String user) throws RemoteException {
 			if(tank1.getReservedUser().equals(user)){

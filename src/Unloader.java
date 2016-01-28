@@ -14,6 +14,7 @@ public class Unloader implements Runnable {
 		if(!used){
 			used = true;
 			int sleepTime = 0;
+			System.out.println("Unloader is in use!");
 			while(sleepTime < unloadAmount){
 				unloadAmount += 2;
 			try {
@@ -23,6 +24,8 @@ public class Unloader implements Runnable {
 			}
 			}
 			used = false;
+			System.out.println("Unloader is ready");
+
 		}
 		else{
 			System.out.println("Unloader is already in use for user: " + user);

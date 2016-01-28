@@ -1508,6 +1508,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton startPump2;
     private javax.swing.JToggleButton startSiloLoad;
     private javax.swing.JLabel tank10Label;
+    
     private static javax.swing.JLabel tank10Status;
     private javax.swing.JLabel tank1Label;
     private static javax.swing.JLabel tank1Status;

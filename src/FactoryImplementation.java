@@ -63,6 +63,9 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		this.tank10 = new Tank();
 		this.pump1 = new Pump();
 		this.pump2 = new Pump();
+		this.Bpump1 = new BottlePump();
+		this.Bpump2 = new BottlePump();
+
 		
 	}
 
@@ -668,69 +671,129 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			}
 	}
 	public void startBottlePump1(String user) throws RemoteException {
-			if(tank1.getReservedUser().equals(user)){
-				tank1.removeContent();
-			}	
-			else if(tank2.getReservedUser().equals(user)){
-				tank2.removeContent();
+		if(tank1.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank1.setReceiving(false);
+			new Thread(tank1).start();
+			new Thread(Bpump1).start();
+		}	
+		else if(tank2.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank2.setReceiving(false);
+			new Thread(tank2).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank3.getReservedUser().equals(user)){
-				tank3.removeContent();
+		else if(tank3.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank3.setReceiving(false);
+			new Thread(tank3).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank4.getReservedUser().equals(user)){
-				tank4.removeContent();
+		else if(tank4.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank4.setReceiving(false);
+			new Thread(tank4).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank5.getReservedUser().equals(user)){
-				tank5.removeContent();
+		else if(tank5.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank5.setReceiving(false);
+			new Thread(tank5).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank6.getReservedUser().equals(user)){
-				tank6.removeContent();
+		else if(tank6.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank6.setReceiving(false);
+			new Thread(tank6).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank7.getReservedUser().equals(user)){
-				tank7.removeContent();
+		else if(tank7.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank7.setReceiving(false);
+			new Thread(tank7).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank8.getReservedUser().equals(user)){
-				tank8.removeContent();
+		else if(tank8.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank8.setReceiving(false);
+			new Thread(tank8).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank9.getReservedUser().equals(user)){
-				tank9.removeContent();
+		else if(tank9.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank9.setReceiving(false);
+			new Thread(tank9).start();
+			new Thread(Bpump1).start();
 			}
-			else if(tank10.getReservedUser().equals(user)){
-				tank10.removeContent();
+		else if(tank10.getReservedUser().equals(user)){
+			Bpump1.setMovedAmount(tank1.getCurrentAmount());
+			tank10.setReceiving(false);
+			new Thread(tank10).start();
+			new Thread(Bpump1).start();
 			}	
 		}	
 
-	public void startBottlePump2(String user) throws RemoteException {
+	public void startBottlePump2(String user) throws RemoteException {		
 		if(tank1.getReservedUser().equals(user)){
-			tank1.removeContent();
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank1.setReceiving(false);
+			new Thread(tank1).start();
+			new Thread(Bpump2).start();
 		}	
 		else if(tank2.getReservedUser().equals(user)){
-			tank2.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank2.setReceiving(false);
+			new Thread(tank2).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank3.getReservedUser().equals(user)){
-			tank3.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank3.setReceiving(false);
+			new Thread(tank3).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank4.getReservedUser().equals(user)){
-			tank4.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank4.setReceiving(false);
+			new Thread(tank4).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank5.getReservedUser().equals(user)){
-			tank5.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank5.setReceiving(false);
+			new Thread(tank5).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank6.getReservedUser().equals(user)){
-			tank6.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank6.setReceiving(false);
+			new Thread(tank6).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank7.getReservedUser().equals(user)){
-			tank7.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank7.setReceiving(false);
+			new Thread(tank7).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank8.getReservedUser().equals(user)){
-			tank8.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank8.setReceiving(false);
+			new Thread(tank8).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank9.getReservedUser().equals(user)){
-			tank9.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank9.setReceiving(false);
+			new Thread(tank9).start();
+			new Thread(Bpump2).start();
+			}
 		else if(tank10.getReservedUser().equals(user)){
-			tank10.removeContent();
-		}
+			Bpump2.setMovedAmount(tank1.getCurrentAmount());
+			tank10.setReceiving(false);
+			new Thread(tank10).start();
+			new Thread(Bpump2).start();
+			}
 	}
 	
 	public void reserveTank1(String user) throws RemoteException {
@@ -781,86 +844,66 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public String proc1CurrentUpdate() throws RemoteException {
 		return Integer.toString(stove1.getCurrentMaterial());
 	}
-
 	public String proc2CurrentUpdate() throws RemoteException {
 		return Integer.toString(stove2.getCurrentMaterial());
 	}
-
 	public String proc3CurrentUpdate() throws RemoteException {
 		return Integer.toString(stove3.getCurrentMaterial());
 	}
+	
 	public String proc1CurrentBatchUpdate() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	public String proc2CurrentBatchUpdate() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	public String proc3CurrentBatchUpdate() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	public boolean stove1GetStartPressed() throws RemoteException {
 		return stove1.getStartPressed();
 	}
-
 	public boolean stove2GetStartPressed() throws RemoteException {
 		// TODO Auto-generated method stub
 		return stove2.getStartPressed();
 	}
-
 	public boolean stove3GetStartPressed() throws RemoteException {
 		// TODO Auto-generated method stub
 		return stove3.getStartPressed();
 	}
-
+	
 	public String tank1CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank1.getCurrentAmount());
 	}
-
 	public String tank2CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank2.getCurrentAmount());
 	}
-
 	public String tank3CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank3.getCurrentAmount());
 	}
-
 	public String tank4CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank4.getCurrentAmount());
 	}
-
 	public String tank5CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank5.getCurrentAmount());
 	}
-
 	public String tank6CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank6.getCurrentAmount());
 	}
-
 	public String tank7CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank7.getCurrentAmount());
 	}
-
 	public String tank8CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank8.getCurrentAmount());
 	}
-
 	public String tank9CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank9.getCurrentAmount());
 	}
-
 	public String tank10CurrentAmountUpdate() throws RemoteException {
 		return Integer.toString(tank10.getCurrentAmount());
 	}
-
-
-
-	
-	
-
 }

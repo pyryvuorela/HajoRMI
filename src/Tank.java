@@ -24,7 +24,7 @@ public class Tank implements Runnable{
 				}
 			}
 			System.out.println("Tanks current amount is: " + currentAmount);
-		}else{
+		}else if (!receiving){
 			while(currentAmount > 0){
 				currentAmount -= 2;
 				try {

@@ -15,13 +15,16 @@ public class BottlePump implements Runnable {
 		if(!isUsed){
 			isUsed = true;
 		try {
-			System.out.println("Pumping started!");
-			int sleepTime = 1000*(movedAmount/PUMPSPEED);
-			Thread.sleep(sleepTime);
+			System.out.println("Pumping to bottles started!");
+			while(movedAmount > 0){
+				movedAmount -= 2;
+			Thread.sleep(1);			
+			}
 			isUsed = false;
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}}else{
+		}
+		}else{
 			System.out.println("Pump is already used!");
 		}
 	}	

@@ -26,7 +26,8 @@ public class Stove implements Runnable{
 					try {
 						System.out.println("Stove is preparing the batch!");
 						currentBatch = currentMaterial;
-						while (this.currentBatch < maxWaterCapacity){
+						int materialX5temp = currentMaterial * 5;
+						while (this.currentBatch < materialX5temp){
 							Thread.sleep(1);
 							this.currentBatch += 2;
 							this.currentMaterial += 2;
@@ -72,7 +73,7 @@ public class Stove implements Runnable{
 		return this.reservedUser;
 	}
 	public void setBatching(boolean b){
-		batching = b;
+		this.batching = b;
 	}
 	public void setMaterialAmount(int material){
 		if(material + this.currentMaterial <= this.maxMaterialCapacity){
@@ -88,6 +89,9 @@ public class Stove implements Runnable{
 	public int getCurrentBatch(){
 		this.reservedUser = "";
 		this.currentUser = "";
+		return this.currentBatch;
+	}
+	public int getCurrentBatchWithoutRemove(){
 		return this.currentBatch;
 	}
 }

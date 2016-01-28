@@ -9,38 +9,38 @@ public class Tank implements Runnable{
 
 	public Tank(){
 		this.currentAmount = 0;
-		tankReadyToUse = true;
-		receiving = true;
-		reservedUser = "";
+		this.tankReadyToUse = true;
+		this.receiving = true;
+		this.reservedUser = "";
 	}
 	public void run() {
-		if(receiving){
-			while(currentAmount < MAXCAPACITY){
-				currentAmount += 2;
+		if(this.receiving){
+			while(this.currentAmount < this.incomingAmount){
+				this.currentAmount += 2;
 				try {
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("Tanks current amount is: " + currentAmount);
-		}else if (!receiving){
-			while(currentAmount > 0){
-				currentAmount -= 2;
+			System.out.println("Tanks current amount is: " + this.currentAmount);
+		}else if (!this.receiving){
+			while(this.currentAmount > 0){
+				this.currentAmount -= 2;
 				try {
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("Tanks current amount is: " + currentAmount);
-			reservedUser = "";
+			System.out.println("Tanks current amount is: " + this.currentAmount);
+			this.reservedUser = "";
 		}		
 	}
 	
 
 	public int getCurrentAmount(){
-		return currentAmount;
+		return this.currentAmount;
 	}
 	public void setInmcomingAmount(int incoming){
 		this.incomingAmount = incoming;
@@ -49,22 +49,22 @@ public class Tank implements Runnable{
 		this.receiving = r;
 	}
 	public boolean getTankState(){
-		return tankReadyToUse;
+		return this.tankReadyToUse;
 	}
 	public String getReservedUser() {
-		return reservedUser;
+		return this.reservedUser;
 	}
 	public void setReservedUser(String user) {
-		if(reservedUser == ""){
+		if(this.reservedUser == ""){
 		this.reservedUser = user;
-		System.out.println("Tank is reserved for user: " + reservedUser);
+		System.out.println("Tank is reserved for user: " + this.reservedUser);
 		}else{
 			System.out.println("Tanks is already reserved!");
 		}
 	}
 	public int removeContent(){
 		int content = currentAmount;
-		currentAmount = 0;
+		this.currentAmount = 0;
 		return content;
 		
 	}

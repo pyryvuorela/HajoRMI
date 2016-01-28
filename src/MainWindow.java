@@ -1415,6 +1415,18 @@ public class MainWindow extends javax.swing.JFrame {
 						proc1Status.setText(f.proc1CurrentUpdate());		
 						proc2Status.setText(f.proc2CurrentUpdate());		
 						proc3Status.setText(f.proc3CurrentUpdate());
+						
+						tank1Status.setText(f.tank1CurrentAmountUpdate());
+						tank2Status.setText(f.tank2CurrentAmountUpdate());
+						tank3Status.setText(f.tank3CurrentAmountUpdate());
+						tank4Status.setText(f.tank4CurrentAmountUpdate());
+						tank5Status.setText(f.tank5CurrentAmountUpdate());
+						tank6Status.setText(f.tank6CurrentAmountUpdate());
+						tank7Status.setText(f.tank7CurrentAmountUpdate());
+						tank8Status.setText(f.tank8CurrentAmountUpdate());
+						tank9Status.setText(f.tank9CurrentAmountUpdate());
+						tank10Status.setText(f.tank10CurrentAmountUpdate());
+						
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}
@@ -1496,25 +1508,25 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton startPump2;
     private javax.swing.JToggleButton startSiloLoad;
     private javax.swing.JLabel tank10Label;
-    private javax.swing.JLabel tank10Status;
+    private static javax.swing.JLabel tank10Status;
     private javax.swing.JLabel tank1Label;
-    private javax.swing.JLabel tank1Status;
+    private static javax.swing.JLabel tank1Status;
     private javax.swing.JLabel tank2Label;
-    private javax.swing.JLabel tank2Status;
+    private static javax.swing.JLabel tank2Status;
     private javax.swing.JLabel tank3Label;
-    private javax.swing.JLabel tank3Status;
+    private static javax.swing.JLabel tank3Status;
     private javax.swing.JLabel tank4Label;
-    private javax.swing.JLabel tank4Status;
+    private static javax.swing.JLabel tank4Status;
     private javax.swing.JLabel tank5Label;
-    private javax.swing.JLabel tank5Status;
+    private  static javax.swing.JLabel tank5Status;
     private javax.swing.JLabel tank6Label;
-    private javax.swing.JLabel tank6Status;
+    private static javax.swing.JLabel tank6Status;
     private javax.swing.JLabel tank7Label;
-    private javax.swing.JLabel tank7Status;
+    private static javax.swing.JLabel tank7Status;
     private javax.swing.JLabel tank8Label;
-    private javax.swing.JLabel tank8Status;
+    private static javax.swing.JLabel tank8Status;
     private javax.swing.JLabel tank9Label;
-    private javax.swing.JLabel tank9Status;
+    private static javax.swing.JLabel tank9Status;
     private javax.swing.JPanel tankPanel;
     private static javax.swing.JTextField userName;
     private static javax.swing.JLabel userNameLabel;

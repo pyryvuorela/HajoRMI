@@ -339,47 +339,47 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			else if(tank2.getReservedUser().equals(user)){
 				tank2.setInmcomingAmount(stove1.getCurrentBatch());
 				tank2.setReceiving(true);
-				new Thread(tank1).start();			
+				new Thread(tank2).start();			
 				}
 			else if(tank3.getReservedUser().equals(user)){
 				tank3.setInmcomingAmount(stove1.getCurrentBatch());
 				tank3.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank3).start();
 				}
 			else if(tank4.getReservedUser().equals(user)){
 				tank4.setInmcomingAmount(stove1.getCurrentBatch());
 				tank4.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank4).start();
 				}
 			else if(tank5.getReservedUser().equals(user)){
 				tank5.setInmcomingAmount(stove1.getCurrentBatch());
 				tank5.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank5).start();
 				}
 			else if(tank6.getReservedUser().equals(user)){
 				tank6.setInmcomingAmount(stove1.getCurrentBatch());
 				tank6.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank6).start();
 				}
 			else if(tank7.getReservedUser().equals(user)){
 				tank7.setInmcomingAmount(stove1.getCurrentBatch());
 				tank7.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank7).start();
 				}
 			else if(tank8.getReservedUser().equals(user)){
 				tank8.setInmcomingAmount(stove1.getCurrentBatch());
 				tank8.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank8).start();
 				}
 			else if(tank9.getReservedUser().equals(user)){
 				tank9.setInmcomingAmount(stove1.getCurrentBatch());
 				tank9.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank9).start();
 				}
 			else if(tank10.getReservedUser().equals(user)){
 				tank10.setInmcomingAmount(stove1.getCurrentBatch());
 				tank10.setReceiving(true);
-				new Thread(tank1).start();
+				new Thread(tank10).start();
 				}
 		}
 		else if(stove2.getReservedUser().equals(user)){
@@ -394,47 +394,47 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			else if(tank2.getReservedUser().equals(user)){
 				tank2.setInmcomingAmount(stove1.getCurrentBatch());
 				tank2.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank2).start();	
 				}
 			else if(tank3.getReservedUser().equals(user)){
 				tank3.setInmcomingAmount(stove1.getCurrentBatch());
 				tank3.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank3).start();	
 				}
 			else if(tank4.getReservedUser().equals(user)){
 				tank4.setInmcomingAmount(stove1.getCurrentBatch());
 				tank4.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank4).start();	
 				}
 			else if(tank5.getReservedUser().equals(user)){
 				tank5.setInmcomingAmount(stove1.getCurrentBatch());
 				tank5.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank5).start();	
 				}
 			else if(tank6.getReservedUser().equals(user)){
 				tank6.setInmcomingAmount(stove1.getCurrentBatch());
 				tank6.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank6).start();	
 				}
 			else if(tank7.getReservedUser().equals(user)){
 				tank7.setInmcomingAmount(stove1.getCurrentBatch());
 				tank7.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank7).start();	
 				}
 			else if(tank8.getReservedUser().equals(user)){
 				tank8.setInmcomingAmount(stove1.getCurrentBatch());
 				tank8.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank8).start();	
 				}
 			else if(tank9.getReservedUser().equals(user)){
 				tank9.setInmcomingAmount(stove1.getCurrentBatch());
 				tank9.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank9).start();	
 				}
 			else if(tank10.getReservedUser().equals(user)){
 				tank10.setInmcomingAmount(stove1.getCurrentBatch());
 				tank10.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank10).start();	
 				}	
 		}
 		else if(stove3.getReservedUser().equals(user)){
@@ -449,47 +449,47 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			else if(tank2.getReservedUser().equals(user)){
 				tank2.setInmcomingAmount(stove1.getCurrentBatch());
 				tank2.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank2).start();	
 				}
 			else if(tank3.getReservedUser().equals(user)){
 				tank3.setInmcomingAmount(stove1.getCurrentBatch());
 				tank3.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank3).start();	
 				}
 			else if(tank4.getReservedUser().equals(user)){
 				tank4.setInmcomingAmount(stove1.getCurrentBatch());
 				tank4.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank4).start();	
 				}
 			else if(tank5.getReservedUser().equals(user)){
 				tank5.setInmcomingAmount(stove1.getCurrentBatch());
 				tank5.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank5).start();	
 				}
 			else if(tank6.getReservedUser().equals(user)){
 				tank6.setInmcomingAmount(stove1.getCurrentBatch());
 				tank6.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank6).start();	
 				}
 			else if(tank7.getReservedUser().equals(user)){
 				tank7.setInmcomingAmount(stove1.getCurrentBatch());
 				tank7.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank7).start();	
 				}
 			else if(tank8.getReservedUser().equals(user)){
 				tank8.setInmcomingAmount(stove1.getCurrentBatch());
 				tank8.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank8).start();	
 				}
 			else if(tank9.getReservedUser().equals(user)){
 				tank9.setInmcomingAmount(stove1.getCurrentBatch());
 				tank9.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank9).start();	
 				}
 			else if(tank10.getReservedUser().equals(user)){
 				tank10.setInmcomingAmount(stove1.getCurrentBatch());
 				tank10.setReceiving(true);
-				new Thread(tank1).start();	
+				new Thread(tank10).start();	
 				}	
 		}
 		}else{
@@ -498,174 +498,174 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startPump2(String user) throws RemoteException {
 		if(!pump2.getIsUsed()){
-		if(stove1.getReservedUser().equals(user)){
-			pump2.setMovedAmount(stove1.getCurrentBatch());
-			new Thread(pump2).start();
-
-			if(tank1.getReservedUser().equals(user)){
-				tank1.setInmcomingAmount(stove1.getCurrentBatch());
-				tank1.setReceiving(true);
-				new Thread(tank1).start();
-			}	
-			else if(tank2.getReservedUser().equals(user)){
-				tank2.setInmcomingAmount(stove1.getCurrentBatch());
-				tank2.setReceiving(true);
-				new Thread(tank1).start();			
-				}
-			else if(tank3.getReservedUser().equals(user)){
-				tank3.setInmcomingAmount(stove1.getCurrentBatch());
-				tank3.setReceiving(true);
-				new Thread(tank1).start();
-				}
-			else if(tank4.getReservedUser().equals(user)){
-				tank4.setInmcomingAmount(stove1.getCurrentBatch());
-				tank4.setReceiving(true);
-				new Thread(tank1).start();
-				}
-			else if(tank5.getReservedUser().equals(user)){
-				tank5.setInmcomingAmount(stove1.getCurrentBatch());
-				tank5.setReceiving(true);
-				new Thread(tank1).start();
-				}
-			else if(tank6.getReservedUser().equals(user)){
-				tank6.setInmcomingAmount(stove1.getCurrentBatch());
-				tank6.setReceiving(true);
-				new Thread(tank1).start();
-				}
-			else if(tank7.getReservedUser().equals(user)){
-				tank7.setInmcomingAmount(stove1.getCurrentBatch());
-				tank7.setReceiving(true);
-				new Thread(tank1).start();
-				}
-			else if(tank8.getReservedUser().equals(user)){
-				tank8.setInmcomingAmount(stove1.getCurrentBatch());
-				tank8.setReceiving(true);
-				new Thread(tank1).start();
-				}
-			else if(tank9.getReservedUser().equals(user)){
-				tank9.setInmcomingAmount(stove1.getCurrentBatch());
-				tank9.setReceiving(true);
-				new Thread(tank1).start();
-				}
-			else if(tank10.getReservedUser().equals(user)){
-				tank10.setInmcomingAmount(stove1.getCurrentBatch());
-				tank10.setReceiving(true);
-				new Thread(tank1).start();
-				}
-		}
-		else if(stove2.getReservedUser().equals(user)){
-			pump2.setMovedAmount(stove2.getCurrentBatch());
-			new Thread(pump2).start();
-			
-			if(tank1.getReservedUser().equals(user)){
-				tank1.setInmcomingAmount(stove1.getCurrentBatch());
-				tank1.setReceiving(true);
-				new Thread(tank1).start();
+			if(stove1.getReservedUser().equals(user)){
+				pump1.setMovedAmount(stove1.getCurrentBatch());
+				new Thread(pump1).start();
+				
+				if(tank1.getReservedUser().equals(user)){
+					tank1.setInmcomingAmount(stove1.getCurrentBatch());
+					tank1.setReceiving(true);
+					new Thread(tank1).start();
 				}	
-			else if(tank2.getReservedUser().equals(user)){
-				tank2.setInmcomingAmount(stove1.getCurrentBatch());
-				tank2.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank3.getReservedUser().equals(user)){
-				tank3.setInmcomingAmount(stove1.getCurrentBatch());
-				tank3.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank4.getReservedUser().equals(user)){
-				tank4.setInmcomingAmount(stove1.getCurrentBatch());
-				tank4.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank5.getReservedUser().equals(user)){
-				tank5.setInmcomingAmount(stove1.getCurrentBatch());
-				tank5.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank6.getReservedUser().equals(user)){
-				tank6.setInmcomingAmount(stove1.getCurrentBatch());
-				tank6.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank7.getReservedUser().equals(user)){
-				tank7.setInmcomingAmount(stove1.getCurrentBatch());
-				tank7.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank8.getReservedUser().equals(user)){
-				tank8.setInmcomingAmount(stove1.getCurrentBatch());
-				tank8.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank9.getReservedUser().equals(user)){
-				tank9.setInmcomingAmount(stove1.getCurrentBatch());
-				tank9.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank10.getReservedUser().equals(user)){
-				tank10.setInmcomingAmount(stove1.getCurrentBatch());
-				tank10.setReceiving(true);
-				new Thread(tank1).start();	
-				}	
-		}
-		else if(stove3.getReservedUser().equals(user)){
-			pump2.setMovedAmount(stove3.getCurrentBatch());
-			new Thread(pump2).start();
-			
-			if(tank1.getReservedUser().equals(user)){
-				tank1.setInmcomingAmount(stove1.getCurrentBatch());
-				tank1.setReceiving(true);
-				new Thread(tank1).start();	
-				}	
-			else if(tank2.getReservedUser().equals(user)){
-				tank2.setInmcomingAmount(stove1.getCurrentBatch());
-				tank2.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank3.getReservedUser().equals(user)){
-				tank3.setInmcomingAmount(stove1.getCurrentBatch());
-				tank3.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank4.getReservedUser().equals(user)){
-				tank4.setInmcomingAmount(stove1.getCurrentBatch());
-				tank4.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank5.getReservedUser().equals(user)){
-				tank5.setInmcomingAmount(stove1.getCurrentBatch());
-				tank5.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank6.getReservedUser().equals(user)){
-				tank6.setInmcomingAmount(stove1.getCurrentBatch());
-				tank6.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank7.getReservedUser().equals(user)){
-				tank7.setInmcomingAmount(stove1.getCurrentBatch());
-				tank7.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank8.getReservedUser().equals(user)){
-				tank8.setInmcomingAmount(stove1.getCurrentBatch());
-				tank8.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank9.getReservedUser().equals(user)){
-				tank9.setInmcomingAmount(stove1.getCurrentBatch());
-				tank9.setReceiving(true);
-				new Thread(tank1).start();	
-				}
-			else if(tank10.getReservedUser().equals(user)){
-				tank10.setInmcomingAmount(stove1.getCurrentBatch());
-				tank10.setReceiving(true);
-				new Thread(tank1).start();	
-				}	
-		}
-	}else{
-		System.out.println("Pump 1 is already in use!");
-	}
+				else if(tank2.getReservedUser().equals(user)){
+					tank2.setInmcomingAmount(stove1.getCurrentBatch());
+					tank2.setReceiving(true);
+					new Thread(tank2).start();			
+					}
+				else if(tank3.getReservedUser().equals(user)){
+					tank3.setInmcomingAmount(stove1.getCurrentBatch());
+					tank3.setReceiving(true);
+					new Thread(tank3).start();
+					}
+				else if(tank4.getReservedUser().equals(user)){
+					tank4.setInmcomingAmount(stove1.getCurrentBatch());
+					tank4.setReceiving(true);
+					new Thread(tank4).start();
+					}
+				else if(tank5.getReservedUser().equals(user)){
+					tank5.setInmcomingAmount(stove1.getCurrentBatch());
+					tank5.setReceiving(true);
+					new Thread(tank5).start();
+					}
+				else if(tank6.getReservedUser().equals(user)){
+					tank6.setInmcomingAmount(stove1.getCurrentBatch());
+					tank6.setReceiving(true);
+					new Thread(tank6).start();
+					}
+				else if(tank7.getReservedUser().equals(user)){
+					tank7.setInmcomingAmount(stove1.getCurrentBatch());
+					tank7.setReceiving(true);
+					new Thread(tank7).start();
+					}
+				else if(tank8.getReservedUser().equals(user)){
+					tank8.setInmcomingAmount(stove1.getCurrentBatch());
+					tank8.setReceiving(true);
+					new Thread(tank8).start();
+					}
+				else if(tank9.getReservedUser().equals(user)){
+					tank9.setInmcomingAmount(stove1.getCurrentBatch());
+					tank9.setReceiving(true);
+					new Thread(tank9).start();
+					}
+				else if(tank10.getReservedUser().equals(user)){
+					tank10.setInmcomingAmount(stove1.getCurrentBatch());
+					tank10.setReceiving(true);
+					new Thread(tank10).start();
+					}
+			}
+			else if(stove2.getReservedUser().equals(user)){
+				pump1.setMovedAmount(stove2.getCurrentBatch());
+				new Thread(pump1).start();
+				
+				if(tank1.getReservedUser().equals(user)){
+					tank1.setInmcomingAmount(stove1.getCurrentBatch());
+					tank1.setReceiving(true);
+					new Thread(tank1).start();
+					}	
+				else if(tank2.getReservedUser().equals(user)){
+					tank2.setInmcomingAmount(stove1.getCurrentBatch());
+					tank2.setReceiving(true);
+					new Thread(tank2).start();	
+					}
+				else if(tank3.getReservedUser().equals(user)){
+					tank3.setInmcomingAmount(stove1.getCurrentBatch());
+					tank3.setReceiving(true);
+					new Thread(tank3).start();	
+					}
+				else if(tank4.getReservedUser().equals(user)){
+					tank4.setInmcomingAmount(stove1.getCurrentBatch());
+					tank4.setReceiving(true);
+					new Thread(tank4).start();	
+					}
+				else if(tank5.getReservedUser().equals(user)){
+					tank5.setInmcomingAmount(stove1.getCurrentBatch());
+					tank5.setReceiving(true);
+					new Thread(tank5).start();	
+					}
+				else if(tank6.getReservedUser().equals(user)){
+					tank6.setInmcomingAmount(stove1.getCurrentBatch());
+					tank6.setReceiving(true);
+					new Thread(tank6).start();	
+					}
+				else if(tank7.getReservedUser().equals(user)){
+					tank7.setInmcomingAmount(stove1.getCurrentBatch());
+					tank7.setReceiving(true);
+					new Thread(tank7).start();	
+					}
+				else if(tank8.getReservedUser().equals(user)){
+					tank8.setInmcomingAmount(stove1.getCurrentBatch());
+					tank8.setReceiving(true);
+					new Thread(tank8).start();	
+					}
+				else if(tank9.getReservedUser().equals(user)){
+					tank9.setInmcomingAmount(stove1.getCurrentBatch());
+					tank9.setReceiving(true);
+					new Thread(tank9).start();	
+					}
+				else if(tank10.getReservedUser().equals(user)){
+					tank10.setInmcomingAmount(stove1.getCurrentBatch());
+					tank10.setReceiving(true);
+					new Thread(tank10).start();	
+					}	
+			}
+			else if(stove3.getReservedUser().equals(user)){
+				pump1.setMovedAmount(stove3.getCurrentBatch());
+				new Thread(pump1).start();
+				
+				if(tank1.getReservedUser().equals(user)){
+					tank1.setInmcomingAmount(stove1.getCurrentBatch());
+					tank1.setReceiving(true);
+					new Thread(tank1).start();	
+					}	
+				else if(tank2.getReservedUser().equals(user)){
+					tank2.setInmcomingAmount(stove1.getCurrentBatch());
+					tank2.setReceiving(true);
+					new Thread(tank2).start();	
+					}
+				else if(tank3.getReservedUser().equals(user)){
+					tank3.setInmcomingAmount(stove1.getCurrentBatch());
+					tank3.setReceiving(true);
+					new Thread(tank3).start();	
+					}
+				else if(tank4.getReservedUser().equals(user)){
+					tank4.setInmcomingAmount(stove1.getCurrentBatch());
+					tank4.setReceiving(true);
+					new Thread(tank4).start();	
+					}
+				else if(tank5.getReservedUser().equals(user)){
+					tank5.setInmcomingAmount(stove1.getCurrentBatch());
+					tank5.setReceiving(true);
+					new Thread(tank5).start();	
+					}
+				else if(tank6.getReservedUser().equals(user)){
+					tank6.setInmcomingAmount(stove1.getCurrentBatch());
+					tank6.setReceiving(true);
+					new Thread(tank6).start();	
+					}
+				else if(tank7.getReservedUser().equals(user)){
+					tank7.setInmcomingAmount(stove1.getCurrentBatch());
+					tank7.setReceiving(true);
+					new Thread(tank7).start();	
+					}
+				else if(tank8.getReservedUser().equals(user)){
+					tank8.setInmcomingAmount(stove1.getCurrentBatch());
+					tank8.setReceiving(true);
+					new Thread(tank8).start();	
+					}
+				else if(tank9.getReservedUser().equals(user)){
+					tank9.setInmcomingAmount(stove1.getCurrentBatch());
+					tank9.setReceiving(true);
+					new Thread(tank9).start();	
+					}
+				else if(tank10.getReservedUser().equals(user)){
+					tank10.setInmcomingAmount(stove1.getCurrentBatch());
+					tank10.setReceiving(true);
+					new Thread(tank10).start();	
+					}	
+			}
+			}else{
+				System.out.println("Pump 2 is already in use!");
+			}
 	}
 	public void startBottlePump1(String user) throws RemoteException {
 			if(tank1.getReservedUser().equals(user)){
@@ -789,9 +789,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public String proc3CurrentUpdate() throws RemoteException {
 		return Integer.toString(stove3.getCurrentMaterial());
 	}
-
-
-
 	public String proc1CurrentBatchUpdate() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
@@ -819,6 +816,46 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	public boolean stove3GetStartPressed() throws RemoteException {
 		// TODO Auto-generated method stub
 		return stove3.getStartPressed();
+	}
+
+	public String tank1CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank1.getCurrentAmount());
+	}
+
+	public String tank2CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank2.getCurrentAmount());
+	}
+
+	public String tank3CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank3.getCurrentAmount());
+	}
+
+	public String tank4CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank4.getCurrentAmount());
+	}
+
+	public String tank5CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank5.getCurrentAmount());
+	}
+
+	public String tank6CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank6.getCurrentAmount());
+	}
+
+	public String tank7CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank7.getCurrentAmount());
+	}
+
+	public String tank8CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank8.getCurrentAmount());
+	}
+
+	public String tank9CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank9.getCurrentAmount());
+	}
+
+	public String tank10CurrentAmountUpdate() throws RemoteException {
+		return Integer.toString(tank10.getCurrentAmount());
 	}
 
 

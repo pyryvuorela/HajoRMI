@@ -60,6 +60,18 @@ public interface Factory extends Remote {
 	public String proc1CurrentBatchUpdate() throws RemoteException;
 	public String proc2CurrentBatchUpdate() throws RemoteException;
 	public String proc3CurrentBatchUpdate() throws RemoteException;
+	
+	public String tank1CurrentAmountUpdate() throws RemoteException;
+	public String tank2CurrentAmountUpdate() throws RemoteException;
+	public String tank3CurrentAmountUpdate() throws RemoteException;
+	public String tank4CurrentAmountUpdate() throws RemoteException;
+	public String tank5CurrentAmountUpdate() throws RemoteException;
+	public String tank6CurrentAmountUpdate() throws RemoteException;
+	public String tank7CurrentAmountUpdate() throws RemoteException;
+	public String tank8CurrentAmountUpdate() throws RemoteException;
+	public String tank9CurrentAmountUpdate() throws RemoteException;
+	public String tank10CurrentAmountUpdate() throws RemoteException;
+
 
 
 	

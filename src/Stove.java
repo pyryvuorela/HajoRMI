@@ -7,14 +7,16 @@ public class Stove implements Runnable{
 	private int currentBatch;
 	private String reservedUser;
 	private boolean startPressed;
-	private boolean batching;
+	private boolean batching; 
+	private String StoveName;
 	
-	public Stove(){
+	public Stove(String Sname){
 	this.currentMaterial = 0;
 	this.currentBatch = 0;
 	this.reservedUser = "";
 	this.startPressed = false;
 	this.batching = false;
+	this.StoveName = Sname;
 	}
 	
 	public void run() { 
@@ -56,7 +58,7 @@ public class Stove implements Runnable{
 		if(this.reservedUser == ""){
 			this.startPressed = false;
 			this.reservedUser = user;
-			System.out.println("Stove reserved for user: " + this.reservedUser);
+			System.out.println(StoveName +" is reserved for user: " + this.reservedUser);
 		}else{
 			System.out.println("Stove is already in use!");
 		}

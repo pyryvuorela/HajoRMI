@@ -256,7 +256,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        userNameLabel.setText("Username");
+        userNameLabel.setText("UsernameKIKKELI");
 
         userName.setToolTipText("");
 
@@ -1199,7 +1199,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
         try {
-    		f.startStove1(userNameLabel.getText());
+    		f.startStove2(userNameLabel.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
@@ -1217,7 +1217,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
        try {
-    		f.startStove1(userNameLabel.getText());
+    		f.startStove3(userNameLabel.getText());
     	} catch (Exception e) {
     		e.printStackTrace();
     	}

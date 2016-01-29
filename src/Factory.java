@@ -57,10 +57,6 @@ public interface Factory extends Remote {
 	public boolean stove2GetStartPressed() throws RemoteException;
 	public boolean stove3GetStartPressed() throws RemoteException;
 	
-	public String proc1CurrentBatchUpdate() throws RemoteException;
-	public String proc2CurrentBatchUpdate() throws RemoteException;
-	public String proc3CurrentBatchUpdate() throws RemoteException;
-	
 	public String tank1CurrentAmountUpdate() throws RemoteException;
 	public String tank2CurrentAmountUpdate() throws RemoteException;
 	public String tank3CurrentAmountUpdate() throws RemoteException;

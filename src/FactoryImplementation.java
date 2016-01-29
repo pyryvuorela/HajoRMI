@@ -131,6 +131,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		stove3.reserveStove(user);
 	}
 	public void startStove1(String user) throws RemoteException {
+		// TODO TASSA ON SELLAINEN BUGI ETTA ANTAA STARTATA USEAN KERRAN
 		if(stove1.getReservedUser().equals(user)){
 			stove1.setBatching(true);
 			new Thread(stove1).start();
@@ -139,6 +140,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}
 	}
 	public void startStove2(String user) throws RemoteException {
+		// TODO TASSA ON SELLAINEN BUGI ETTA ANTAA STARTATA USEAN KERRAN
 		if(stove2.getReservedUser().equals(user)){
 			stove2.setBatching(true);
 			new Thread(stove2).start();
@@ -147,6 +149,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}
 	}
 	public void startStove3(String user) throws RemoteException {
+		// TODO TASSA ON SELLAINEN BUGI ETTA ANTAA STARTATA USEAN KERRAN
 		if(stove3.getReservedUser().equals(user)){
 			stove3.setBatching(true);
 			new Thread(stove3).start();

@@ -18,7 +18,7 @@ public class Tank implements Runnable{
 			while(this.currentAmount < this.incomingAmount){
 				this.currentAmount += 2;
 				try {
-					Thread.sleep(1);
+					Thread.sleep(10);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

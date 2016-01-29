@@ -15,9 +15,9 @@ public class Pump implements Runnable{
 			isUsed = true;
 			System.out.println("Pump is in action!");
 			while(movedAmount > 0){
-				movedAmount -= 2;
+				movedAmount -= 5;
 				try {
-					Thread.sleep(1);
+					Thread.sleep(10);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

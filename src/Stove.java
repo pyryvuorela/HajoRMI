@@ -28,7 +28,7 @@ public class Stove implements Runnable{
 						currentBatch = currentMaterial;
 						int materialX5temp = currentMaterial * 5;
 						while (this.currentBatch < materialX5temp){
-							Thread.sleep(1);
+							Thread.sleep(10);
 							this.currentBatch += 2;
 							this.currentMaterial += 2;
 						}
@@ -81,9 +81,19 @@ public class Stove implements Runnable{
 	public boolean getStartPressed(){
 		return this.startPressed;
 	}
-	public int getCurrentBatch(){
+	public int getCurrentBatch(int tankCurrent){
 		this.reservedUser = "";
-		return this.currentBatch;
+		int removeC = this.currentBatch;
+		if(10000 >= tankCurrent+currentBatch){
+			currentBatch = 0;
+			currentMaterial = 0;
+			return removeC;
+		}else{
+			removeC = 10000- tankCurrent;
+			this.currentBatch -= removeC;
+			this.currentMaterial -= removeC;
+			return removeC;
+		}
 	}
 	public int getCurrentBatchWithoutRemove(){
 		return this.currentBatch;

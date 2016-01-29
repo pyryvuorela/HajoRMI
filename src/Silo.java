@@ -2,7 +2,6 @@
 public class Silo implements Runnable {
 	private int currentAmount;
 	private String currentUser;
-	private String loaderUser;
 	private final int capacity = 10000;
 	
 	
@@ -16,8 +15,8 @@ public class Silo implements Runnable {
 					System.out.println("Siloloader is reserved for this silo!");
 					try {
 						while (this.currentAmount < this.capacity){
-							Thread.sleep(1);
-							this.currentAmount = this.currentAmount + 2;
+							Thread.sleep(10);
+							this.currentAmount += 2;
 						}
 						System.out.println("Silo is full!");
 						this.removeCurrentUser();

@@ -6,7 +6,6 @@ public class Stove implements Runnable{
 	private int incomingMaterial;
 	private int currentBatch;
 	private String reservedUser;
-	private String currentUser;
 	private boolean startPressed;
 	private boolean batching;
 	
@@ -21,7 +20,6 @@ public class Stove implements Runnable{
 	public void run() { 
 		if(batching){
 			if(this.reservedUser != ""){
-				if(this.reservedUser.equals(this.currentUser)){
 					this.startPressed = true;
 					try {
 						System.out.println("Stove is preparing the batch!");
@@ -37,16 +35,13 @@ public class Stove implements Runnable{
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-				}else{
-					System.out.println("Stove is not reserved for this user!");
-				}
 			}else{
 				System.out.println("Stove is not reserved, please reserve Stove before use!");
 			}
 		}else if(!batching){
 				try {
 					while (this.currentMaterial < incomingMaterial){				
-						Thread.sleep(1);
+						Thread.sleep(10);
 						currentMaterial+=2;
 					}
 				} catch (Exception e) {
@@ -66,9 +61,7 @@ public class Stove implements Runnable{
 			System.out.println("Stove is already in use!");
 		}
 	}
-	public void setCurrentUser(String current){
-		this.currentUser = current;
-	}
+
 	public String getReservedUser(){
 		return this.reservedUser;
 	}
@@ -88,7 +81,6 @@ public class Stove implements Runnable{
 	}
 	public int getCurrentBatch(){
 		this.reservedUser = "";
-		this.currentUser = "";
 		return this.currentBatch;
 	}
 	public int getCurrentBatchWithoutRemove(){

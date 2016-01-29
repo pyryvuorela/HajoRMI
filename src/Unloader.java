@@ -1,24 +1,21 @@
 
 public class Unloader implements Runnable {
 	private int unloadAmount;
-	private final int maxUnload = 2000;
-	private final int maxUnloadSpeed = 200;
 	private String user;
 	private boolean used;
 
 	public Unloader(){
-		used = false;
-		
+		used = false;		
 	}
+	
 	public void run() {
 		if(!used){
 			used = true;
-			int sleepTime = 0;
 			System.out.println("Unloader is in use!");
-			while(sleepTime < unloadAmount){
-				unloadAmount += 2;
+			while(0 < unloadAmount){
+				unloadAmount -= 2;
 			try {
-				Thread.sleep(1);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

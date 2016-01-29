@@ -73,12 +73,10 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		users.checkLogInRegisterStatus(userName);
 	}
 	public void startSiloLoadAction(String user) throws RemoteException {
-		System.out.println("Toimii tahan asti?");
-		 
 		if(silo1.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 				if(!siloLoader.getLoaderisUsed()){
-					siloLoader.setLoadTime((silo1.getCapacity() - silo1.getCurrentAmount()) / 2);
+					siloLoader.setLoadTime((silo1.getCapacity() - silo1.getCurrentAmount()));
 					new Thread(siloLoader).start();
 					new Thread(silo1).start();
 			}
@@ -86,7 +84,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		 else if(silo2.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 				if(!siloLoader.getLoaderisUsed()){
-					siloLoader.setLoadTime((silo2.getCapacity() - silo2.getCurrentAmount()) / 2);
+					siloLoader.setLoadTime((silo2.getCapacity() - silo2.getCurrentAmount()));
 					new Thread(siloLoader).start();
 					new Thread(silo2).start();
 				}
@@ -94,7 +92,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		 else if(silo3.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 				if(!siloLoader.getLoaderisUsed()){
-					siloLoader.setLoadTime((silo3.getCapacity() - silo3.getCurrentAmount()) / 2);
+					siloLoader.setLoadTime((silo3.getCapacity() - silo3.getCurrentAmount()));
 					new Thread(siloLoader).start();
 					new Thread(silo3).start();
 				}
@@ -102,33 +100,28 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		 else if(silo4.getCurrentUser().equals(user)){
 			siloLoader.setCurrentUser(user);
 				if(!siloLoader.getLoaderisUsed()){
-					siloLoader.setLoadTime((silo4.getCapacity() - silo4.getCurrentAmount()) / 2);
+					siloLoader.setLoadTime((silo4.getCapacity() - silo4.getCurrentAmount()));
 					new Thread(siloLoader).start();
 					new Thread(silo4).start();
 				}
 		}
 		 else {
-			 System.out.println("Varaa joku siilo, ennen tayttajan kayttoa!");
+			 System.out.println("Please recerve silo before using Siloloader!");
 		 }
 	}
 	public void reserveSilo1(String user) throws RemoteException {
-			System.out.println("Silo1 varausta painettu");
 			silo1.setCurrentUser(user);
 	}
 	public void reserveSilo2(String user) throws RemoteException {
-			System.out.println("Silo2 varausta painettu");
 			silo2.setCurrentUser(user);
 	}
 	public void reserveSilo3(String user) throws RemoteException {
-			System.out.println("Silo3 varausta painettu");
 			silo3.setCurrentUser(user);
 	}
 	public void reserveSilo4(String user) throws RemoteException {
-			System.out.println("Silo4 varausta painettu");
 			silo4.setCurrentUser(user);
 	}
 	public void reserveStove1(String user) throws RemoteException {
-		System.out.println("Stove1 varausta painettu");
 		stove1.reserveStove(user);
 	}
 	public void reserveStove2(String user) throws RemoteException {
@@ -138,23 +131,33 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		stove3.reserveStove(user);
 	}
 	public void startStove1(String user) throws RemoteException {
-		stove1.setCurrentUser(user);
-		stove1.setBatching(true);
-		new Thread(stove1).start();
+		if(stove1.getReservedUser().equals(user)){
+			stove1.setBatching(true);
+			new Thread(stove1).start();
+		}else{
+			System.out.println("You have no recervation for this stove!");
+		}
 	}
 	public void startStove2(String user) throws RemoteException {
-		stove2.setCurrentUser(user);
-		stove2.setBatching(true);
-		new Thread(stove2).start();
+		if(stove2.getReservedUser().equals(user)){
+			stove2.setBatching(true);
+			new Thread(stove2).start();
+		}else{
+			System.out.println("You have no recervation for this stove!");
+		}
 	}
 	public void startStove3(String user) throws RemoteException {
-		stove3.setCurrentUser(user);
-		stove3.setBatching(true);
-		new Thread(stove3).start();
+		if(stove3.getReservedUser().equals(user)){
+			stove3.setBatching(true);
+			new Thread(stove3).start();
+		}else{
+			System.out.println("You have no recervation for this stove!");
+		}
 	}
 	
 	public void startUnloader1(int amount, String user) throws RemoteException {
 		if(!unloader1.isUsed()){
+			unloader1.setUnloadAmount(amount);
 			new Thread(unloader1).start();
 		if(silo1.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
@@ -242,6 +245,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startUnloader2(int amount, String user) throws RemoteException {
 		if(!unloader2.isUsed()){
+			unloader2.setUnloadAmount(amount);
 			new Thread(unloader2).start();
 		if(silo1.getCurrentUser().equals(user)){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){

@@ -14,11 +14,11 @@ public class SiloLoader implements Runnable{
 			if(!this.loaderIsUsed){
 				this.loaderIsUsed = true;
 				try{
-					System.out.println("Kuljetin pumppaa 200 kg/s");
-					Thread.sleep(loadTime);
+					System.out.println("Siloloader is loading 200 kg/s.");
+					Thread.sleep(loadTime*5);
 					this.currentUser = "";
 					this.loaderIsUsed = false;
-					System.out.println("Kuljetin valmis!");
+					System.out.println("Siloloader is done!");
 				} catch (Exception e) {
 					System.out.println("Error: " + e);
 				}
@@ -32,7 +32,6 @@ public class SiloLoader implements Runnable{
 	public String getCurrentUser() {
 		return this.currentUser;
 	}
-
 	public void setCurrentUser(String user) {
 		if(this.currentUser == "")
 		this.currentUser = user;
@@ -42,11 +41,6 @@ public class SiloLoader implements Runnable{
 	public boolean getLoaderisUsed(){
 		return this.loaderIsUsed;
 	}
-
-	public int getLoadTime() {
-		return this.loadTime;
-	}
-
 	public void setLoadTime(int loadTime) {
 		this.loadTime = loadTime;
 	}

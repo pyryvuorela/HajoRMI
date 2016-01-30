@@ -84,12 +84,13 @@ public class Stove implements Runnable{
 	public int getCurrentBatch(int tankCurrent){
 		this.reservedUser = "";
 		int removeC = this.currentBatch;
-		if(10000 >= tankCurrent+currentBatch){
+		if(10000 >= tankCurrent + currentBatch){
+			removeC = currentBatch + tankCurrent;
 			currentBatch = 0;
 			currentMaterial = 0;
 			return removeC;
 		}else{
-			removeC = 10000- tankCurrent;
+			removeC = 10000 - tankCurrent;
 			this.currentBatch -= removeC;
 			this.currentMaterial -= removeC;
 			return removeC;

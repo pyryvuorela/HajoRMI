@@ -256,12 +256,12 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        userNameLabel.setText("UsernameKIKKELI");
+        userNameLabel.setText("Username");
 
         userName.setToolTipText("");
 
         signIn.setText("Log in");
-        signIn.setToolTipText("");
+        signIn.setToolTipText("Write here your username");
         signIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInActionPerformed(evt);
@@ -908,7 +908,7 @@ public class MainWindow extends javax.swing.JFrame {
         bpumpPanelLayout.setHorizontalGroup(
             bpumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bpumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                .addComponent(bpump1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+            	.addComponent(bpump1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(bpump1Status, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(startBpump1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(bpump2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -918,7 +918,7 @@ public class MainWindow extends javax.swing.JFrame {
         bpumpPanelLayout.setVerticalGroup(
             bpumpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bpumpPanelLayout.createSequentialGroup()
-                .addComponent(bpump1Label)
+            	.addComponent(bpump1Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bpump1Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1110,10 +1110,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_signInActionPerformed
 
     private void startProcLoad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad1ActionPerformed
+    	// TODO Tarkista onko kentassa numeroita    	
     	try {
 			f.startUnloader1(Integer.parseInt(procLoadAmount1.getText()),userNameLabel.getText());
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Input is not valid, try again.");
 		}
     	// TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad1ActionPerformed
@@ -1122,7 +1123,7 @@ public class MainWindow extends javax.swing.JFrame {
     	try {
     		f.startUnloader2(Integer.parseInt(procLoadAmount2.getText()), userNameLabel.getText());
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Input is not valid, try again.");
 		}
     	// TODO Mitä tehdään kun keittimen täytön ruuvikuljetin 1 käynnistetään
     }//GEN-LAST:event_startProcLoad2ActionPerformed
@@ -1430,7 +1431,6 @@ public class MainWindow extends javax.swing.JFrame {
 						proc1User.setText(f.stove1CurrentUserUpdate());
 						proc2User.setText(f.stove2CurrentUserUpdate());
 						proc3User.setText(f.stove3CurrentUserUpdate());
-						
 					} catch (Exception e) {
 						System.out.println("Error threadissa: " + e);
 					}

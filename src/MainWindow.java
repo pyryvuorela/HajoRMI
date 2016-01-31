@@ -258,10 +258,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         userNameLabel.setText("Username");
 
-        userName.setToolTipText("");
+        userName.setToolTipText("Write your username here");
 
         signIn.setText("Log in");
-        signIn.setToolTipText("Write here your username");
+        signIn.setToolTipText("");
         signIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInActionPerformed(evt);

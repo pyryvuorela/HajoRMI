@@ -166,87 +166,121 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	
 	public void startUnloader1(int amount, String user) throws RemoteException {
 		if(!unloader1.isUsed()){
-			unloader1.setUnloadAmount(amount);
-			new Thread(unloader1).start();
-			if(silo1.getCurrentUser().equals(user)){
+			if(silo1.getCurrentUser().equals(user) && silo1.getCurrentAmount() >= amount){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo1.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
 					stove1.setBatching(false);
 					new Thread(stove1).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}			
 				else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 					silo1.removeSilosContent(amount);		
 					stove2.setMaterialAmount(amount);
 					stove2.setBatching(false);
 					new Thread(stove2).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}
 				else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 					silo1.removeSilosContent(amount);		
 					stove3.setMaterialAmount(amount);
 					stove3.setBatching(false);
 					new Thread(stove3).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();;
+				}
+				else{
+					System.out.println("Problem in order, please check reservations and amounts!");
 				}
 			}
-			else if(silo2.getCurrentUser().equals(user)){
+			else if(silo2.getCurrentUser().equals(user) && silo2.getCurrentAmount() >= amount){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo2.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
 					stove1.setBatching(false);
 					new Thread(stove1).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}			
 				else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 					silo2.removeSilosContent(amount);		
 					stove2.setMaterialAmount(amount);
 					stove2.setBatching(false);
 					new Thread(stove2).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}
 				else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 					silo2.removeSilosContent(amount);		
 					stove3.setMaterialAmount(amount);
 					stove3.setBatching(false);
 					new Thread(stove3).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
+				}
+				else{
+					System.out.println("Problem in order, please check reservations and amounts!");
 				}
 			}
-			else if(silo3.getCurrentUser().equals(user)){
+			else if(silo3.getCurrentUser().equals(user) && silo3.getCurrentAmount() >= amount){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo3.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
 					stove1.setBatching(false);
 					new Thread(stove1).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}			
 				else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 					silo3.removeSilosContent(amount);		
 					stove2.setMaterialAmount(amount);
 					stove2.setBatching(false);
 					new Thread(stove2).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}
 				else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 					silo3.removeSilosContent(amount);		
 					stove3.setMaterialAmount(amount);
 					stove3.setBatching(false);
 					new Thread(stove3).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
+				}
+				else{
+					System.out.println("Problem in order, please check reservations and amounts!");
 				}
 			}
-			else if(silo4.getCurrentUser().equals(user)){
+			else if(silo4.getCurrentUser().equals(user) && silo4 .getCurrentAmount() >= amount){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo4.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
 					stove1.setBatching(false);
 					new Thread(stove1).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}			
 				else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 					silo4.removeSilosContent(amount);		
 					stove2.setMaterialAmount(amount);
 					stove2.setBatching(false);
 					new Thread(stove2).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();
 				}
 				else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 					silo4.removeSilosContent(amount);		
 					stove3.setMaterialAmount(amount);
 					stove3.setBatching(false);
 					new Thread(stove3).start();
+					unloader1.setUnloadAmount(amount);
+					new Thread(unloader1).start();;
 				}
+			}
+			else{
+				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}else{
 			System.out.println("Unloader is already in use!");
@@ -254,54 +288,72 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startUnloader2(int amount, String user) throws RemoteException {
 		if(!unloader2.isUsed()){
-			unloader2.setUnloadAmount(amount);
-			new Thread(unloader2).start();
-		if(silo1.getCurrentUser().equals(user)){
+		if(silo1.getCurrentUser().equals(user) && silo1.getCurrentAmount() >= amount){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
 				stove1.setBatching(false);
 				new Thread(stove1).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
 				stove2.setMaterialAmount(amount);
 				stove2.setBatching(false);
 				new Thread(stove2).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
 				stove3.setMaterialAmount(amount);
 				stove3.setBatching(false);
 				new Thread(stove3).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
+			}
+			else{
+				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}
-		else if(silo2.getCurrentUser().equals(user)){
+		else if(silo2.getCurrentUser().equals(user) && silo2.getCurrentAmount() >= amount){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
 				stove1.setBatching(false);
 				new Thread(stove1).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
 				stove2.setMaterialAmount(amount);
 				stove2.setBatching(false);
 				new Thread(stove2).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
 				stove3.setMaterialAmount(amount);
 				stove3.setBatching(false);
 				new Thread(stove3).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
+			}
+			else{
+				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}
-		else if(silo3.getCurrentUser().equals(user)){
+		else if(silo3.getCurrentUser().equals(user) && silo3.getCurrentAmount() >= amount){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
 				stove1.setBatching(false);
 				new Thread(stove1).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
@@ -314,26 +366,40 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 				stove3.setMaterialAmount(amount);
 				stove3.setBatching(false);
 				new Thread(stove3).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
+			}
+			else{
+				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}
-		else if(silo4.getCurrentUser().equals(user)){
+		else if(silo4.getCurrentUser().equals(user) && silo4.getCurrentAmount() >= amount){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
 				stove1.setBatching(false);
 				new Thread(stove1).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
 			}			
 			else if(stove2.getReservedUser().equals(user) && stove2.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
 				stove2.setMaterialAmount(amount);
 				stove2.setBatching(false);
 				new Thread(stove2).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
 			}
 			else if(stove3.getReservedUser().equals(user) && stove3.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
 				stove3.setMaterialAmount(amount);
 				stove3.setBatching(false);
 				new Thread(stove3).start();
+				unloader2.setUnloadAmount(amount);
+				new Thread(unloader2).start();
+			}
+			else{
+				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}
 		}else{

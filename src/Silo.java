@@ -6,7 +6,7 @@ public class Silo implements Runnable {
 	
 	
 	public Silo(){
-		this.currentAmount = 10;
+		this.currentAmount = 0;
 		this.currentUser = "";
 	}
 

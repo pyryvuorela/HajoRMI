@@ -1086,11 +1086,10 @@ public class MainWindow extends javax.swing.JFrame {
     
     private void startSiloLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startSiloLoadActionPerformed
 		try {
-			System.out.println("Lataajaan painallus tunnistettu");
 			f.startSiloLoadAction(userNameLabel.getText());
-			System.out.println("Lataaja valmiustilassa");
+			startSiloLoad.setSelected(false);
 		} catch (Exception e) {
-			System.out.println("Error tuli koska painajalla ei ollut varausta missaan silossa: " + e);
+			System.out.println("Error: " + e);
 		}
         // TODO Mitä tehdään, kun siilojen täytön ruuvikuljetin käynnistetään?
     }//GEN-LAST:event_startSiloLoadActionPerformed
@@ -1100,7 +1099,7 @@ public class MainWindow extends javax.swing.JFrame {
     			f.userLogIn(userName.getText());
     			userNameLabel.setText(userName.getText());    			
     		}else{
-    			System.out.println("Anna jokin nimi!");
+    			System.out.println("Give a name");
     		}
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -1113,6 +1112,7 @@ public class MainWindow extends javax.swing.JFrame {
     	// TODO Tarkista onko kentassa numeroita    	
     	try {
 			f.startUnloader1(Integer.parseInt(procLoadAmount1.getText()),userNameLabel.getText());
+			startProcLoad1.setSelected(false);
 		} catch (Exception e) {
 			System.out.println("Input is not valid, try again.");
 		}
@@ -1122,6 +1122,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void startProcLoad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProcLoad2ActionPerformed
     	try {
     		f.startUnloader2(Integer.parseInt(procLoadAmount2.getText()), userNameLabel.getText());
+    		startProcLoad2.setSelected(false);
 		} catch (Exception e) {
 			System.out.println("Input is not valid, try again.");
 		}
@@ -1175,61 +1176,67 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc1ActionPerformed
        try {
 		f.reserveStove1(userNameLabel.getText());
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
     	// TODO Mitä tehdään kun keitin1 varataan?
     }//GEN-LAST:event_reserveProc1ActionPerformed
 
     private void startProc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc1ActionPerformed
         try {
     		f.startStove1(userNameLabel.getText());
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
+    		startProc1.setSelected(false);
+    		reserveProc1.setSelected(false);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
     	// TODO Mitä tehdään kun keitin1 käynnistetään?
     }//GEN-LAST:event_startProc1ActionPerformed
 
     private void reserveProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc2ActionPerformed
         try {
     		f.reserveStove2(userNameLabel.getText());
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}// TODO Mitä tehdään kun keitin2 varataan?
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}// TODO Mitä tehdään kun keitin2 varataan?
     }//GEN-LAST:event_reserveProc2ActionPerformed
 
     private void startProc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc2ActionPerformed
         try {
     		f.startStove2(userNameLabel.getText());
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
+    		startProc2.setSelected(false);
+    		reserveProc2.setSelected(false);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
     	// TODO Mitä tehdään kun keitin2 käynnistetään?
     }//GEN-LAST:event_startProc2ActionPerformed
 
     private void reserveProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveProc3ActionPerformed
         try {
     		f.reserveStove3(userNameLabel.getText());
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
     	// TODO Mitä tehdään kun keitin3 varataan?
     }//GEN-LAST:event_reserveProc3ActionPerformed
 
     private void startProc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startProc3ActionPerformed
        try {
     		f.startStove3(userNameLabel.getText());
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
+    		startProc3.setSelected(false);
+    		reserveProc3.setSelected(false);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
         // TODO Mitä tehdään kun keitin3 käynnistetään?
     }//GEN-LAST:event_startProc3ActionPerformed
 
     private void startPump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump1ActionPerformed
     	try {
 			f.startPump1(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     // TODO Mitä tehdään kun pumppu1 käynnistetään?
     }//GEN-LAST:event_startPump1ActionPerformed
@@ -1237,8 +1244,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void startPump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPump2ActionPerformed
     	try {
 			f.startPump2(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun pumppu2 käynnistetään?
     }//GEN-LAST:event_startPump2ActionPerformed
@@ -1246,8 +1253,9 @@ public class MainWindow extends javax.swing.JFrame {
     private void startBpump1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump1ActionPerformed
         try {
 			f.startBottlePump1(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+			startBpump1.setSelected(false);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun pumppu1 pullotukseen käynnistetään?
     }//GEN-LAST:event_startBpump1ActionPerformed
@@ -1255,17 +1263,18 @@ public class MainWindow extends javax.swing.JFrame {
     private void startBpump2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBpump2ActionPerformed
        try {
 		f.startBottlePump2(userNameLabel.getText());
-	} catch (RemoteException e) {
-		e.printStackTrace();
-	}
+		startBpump2.setSelected(false);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
     	// TODO Mitä tehdään kun pumppu2 pullotukseen käynnistetään?
     }//GEN-LAST:event_startBpump2ActionPerformed
 
     private void reserveTank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank1ActionPerformed
     	try {
 			f.reserveTank1(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö1 varataan?
     }//GEN-LAST:event_reserveTank1ActionPerformed
@@ -1273,16 +1282,16 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank2ActionPerformed
        	try {
 			f.reserveTank2(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}// TODO Mitä tehdään kun säiliö2 varataan?
     }//GEN-LAST:event_reserveTank2ActionPerformed
 
     private void reserveTank3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank3ActionPerformed
     	try {
 			f.reserveTank3(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö3 varataan?
     }//GEN-LAST:event_reserveTank3ActionPerformed
@@ -1290,8 +1299,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank4ActionPerformed
     	try {
 			f.reserveTank4(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö4 varataan?
     }//GEN-LAST:event_reserveTank4ActionPerformed
@@ -1299,8 +1308,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank5ActionPerformed
     	try {
 			f.reserveTank5(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö5 varataan?
     }//GEN-LAST:event_reserveTank5ActionPerformed
@@ -1308,8 +1317,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank6ActionPerformed
     	try {
 			f.reserveTank6(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö6 varataan?
     }//GEN-LAST:event_reserveTank6ActionPerformed
@@ -1317,8 +1326,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank7ActionPerformed
     	try {
 			f.reserveTank7(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö7 varataan?
     }//GEN-LAST:event_reserveTank7ActionPerformed
@@ -1326,8 +1335,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank8ActionPerformed
     	try {
 			f.reserveTank8(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö8 varataan?
     }//GEN-LAST:event_reserveTank8ActionPerformed
@@ -1335,8 +1344,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank9ActionPerformed
     	try {
 			f.reserveTank9(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö9 varataan?
     }//GEN-LAST:event_reserveTank9ActionPerformed
@@ -1344,8 +1353,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void reserveTank10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveTank10ActionPerformed
     	try {
 			f.reserveTank10(userNameLabel.getText());
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
 		}
     	// TODO Mitä tehdään kun säiliö10 varataan?
     }//GEN-LAST:event_reserveTank10ActionPerformed
@@ -1403,9 +1412,9 @@ public class MainWindow extends javax.swing.JFrame {
         	public void run(){
         		try {
 					Thread.sleep(1000);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
+        		} catch (Exception e) {
+        			System.out.println("Error: " + e);
+        		}
         		while(true){
         			try {
         				Thread.sleep(20);
@@ -1433,7 +1442,7 @@ public class MainWindow extends javax.swing.JFrame {
 						proc2User.setText(f.stove2CurrentUserUpdate());
 						proc3User.setText(f.stove3CurrentUserUpdate());
 					} catch (Exception e) {
-						System.out.println("Error threadissa: " + e);
+						System.out.println("Error: " + e);
 					}
         		}
         	}

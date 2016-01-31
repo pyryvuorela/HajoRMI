@@ -1,14 +1,3 @@
-/*
- * TODO
- * - Korjaa bugi joka sallii aineen luomisen tyhjasta siilosta stoveen
- * 
- * - Stoveissa on vielakin se varausbugi. Jos yrittaa kaynnistaa itselleen varattua stove2,
- *   stove2 vaittaa etta varausta ei ole jos joku toinen on tehnyt stove1ssa
- *   batchin ja taman jalkeen siirtanyt sen tankkiin
- * 
- * - 
- */
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -115,7 +104,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 				}
 		}
 		 else {
-			 System.out.println("Please recerve silo before using Siloloader!");
+			 System.out.println("Please reserve silo before using Siloloader!");
 		 }
 	}
 	public void reserveSilo1(String user) throws RemoteException {

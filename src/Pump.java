@@ -1,6 +1,5 @@
 
 public class Pump implements Runnable{
-	private final int PUMPSPEED = 500;
 	private int movedAmount;
 	private boolean isUsed;
 
@@ -18,7 +17,7 @@ public class Pump implements Runnable{
 				movedAmount -= 5;
 				try {
 					Thread.sleep(10);
-				} catch (InterruptedException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}

@@ -16,7 +16,7 @@ public class Unloader implements Runnable {
 				unloadAmount -= 2;
 			try {
 				Thread.sleep(10);
-			} catch (InterruptedException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			}

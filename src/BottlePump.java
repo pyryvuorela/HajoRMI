@@ -1,7 +1,6 @@
 
 public class BottlePump implements Runnable {
 
-	private final int PUMPSPEED = 500;
 	private int movedAmount;
 	private boolean isUsed;
 
@@ -21,7 +20,7 @@ public class BottlePump implements Runnable {
 				Thread.sleep(10);			
 			}
 			isUsed = false;
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		}else{

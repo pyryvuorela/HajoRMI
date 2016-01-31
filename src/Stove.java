@@ -39,7 +39,7 @@ public class Stove implements Runnable{
 						System.out.println("Batch is ready!");
 						batching = false;
 						isUsed = false;
-					} catch (InterruptedException e) {
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 			}else{
@@ -92,9 +92,9 @@ public class Stove implements Runnable{
 		return this.startPressed;
 	}
 	public int getCurrentBatch(int tankCurrent){
-		this.reservedUser = "";
 		int removeC = this.currentBatch;
 		if(10000 >= tankCurrent + currentBatch){
+			this.reservedUser = "";
 			removeC = currentBatch + tankCurrent;
 			currentBatch = 0;
 			currentMaterial = 0;

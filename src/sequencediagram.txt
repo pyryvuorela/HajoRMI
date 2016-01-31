@@ -1,0 +1,36 @@
+loop UpdaterLoop
+MainWindow -> FactoryImplementation: Updater
+FactoryImplementation -> MainWindow: Updater
+end
+
+opt PressingButtons
+
+
+
+MainWindow->+FactoryImplementation: Buttons pressed in GUI
+
+FactoryImplementation->+Loader: Use loader
+Loader-->-FactoryImplementation: is it possible
+
+FactoryImplementation->+Silo: Use silo
+Silo-->-FactoryImplementation: is it possible
+
+FactoryImplementation->+UnLoader: Use unloader
+UnLoader-->-FactoryImplementation: is it possible
+
+FactoryImplementation->+Stove: Use stove
+Stove-->-FactoryImplementation: is it possible
+
+FactoryImplementation->+Pump: Use pump
+Pump-->-FactoryImplementation: is it possible
+
+FactoryImplementation->+Tank: Use tank
+Tank-->-FactoryImplementation: is it possible
+
+FactoryImplementation->+Bpump: Use bpump
+Bpump-->-FactoryImplementation: is it possible
+
+FactoryImplementation-->-MainWindow: Is request valid or not
+
+end
+

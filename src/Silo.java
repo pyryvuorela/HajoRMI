@@ -26,7 +26,7 @@ public class Silo implements Runnable {
 						System.out.println(SiloName + " is full!");
 						isUsed = false;
 						this.removeCurrentUser();
-					} catch (InterruptedException e) {
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 		}

@@ -1,6 +1,5 @@
 
 public class Tank implements Runnable{
-	private final int MAXCAPACITY = 10000;
 	private int currentAmount;
 	private int incomingAmount;
 	private boolean tankReadyToUse;
@@ -20,7 +19,7 @@ public class Tank implements Runnable{
 				this.currentAmount += 5;
 				try {
 					Thread.sleep(10);
-				} catch (InterruptedException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -32,7 +31,7 @@ public class Tank implements Runnable{
 				this.currentAmount -= 5;
 				try {
 					Thread.sleep(10);
-				} catch (InterruptedException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}

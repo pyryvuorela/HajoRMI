@@ -15,24 +15,28 @@ public class Tank implements Runnable{
 	}
 	public void run() {
 		if(this.receiving){
+			tankReadyToUse =  false;
 			while(this.currentAmount < this.incomingAmount){
-				this.currentAmount += 2;
+				this.currentAmount += 5;
 				try {
 					Thread.sleep(10);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
+			tankReadyToUse = true;
 			System.out.println("Tanks current amount is: " + this.currentAmount);
 		}else if (!this.receiving){
+			tankReadyToUse = false;
 			while(this.currentAmount > 0){
-				this.currentAmount -= 2;
+				this.currentAmount -= 5;
 				try {
-					Thread.sleep(1);
+					Thread.sleep(10);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
+			tankReadyToUse = true;
 			System.out.println("Tanks current amount is: " + this.currentAmount);
 			this.reservedUser = "";
 		}		

@@ -8,6 +8,8 @@ public class Stove implements Runnable{
 	private String reservedUser;
 	private boolean startPressed;
 	private boolean batching; 
+	private boolean isUsed;
+	
 	private String StoveName;
 	
 	public Stove(String Sname){
@@ -16,6 +18,7 @@ public class Stove implements Runnable{
 	this.reservedUser = "";
 	this.startPressed = false;
 	this.batching = false;
+	this.isUsed = false;
 	this.StoveName = Sname;
 	}
 	
@@ -23,6 +26,7 @@ public class Stove implements Runnable{
 		if(batching){
 			if(this.reservedUser != ""){
 					this.startPressed = true;
+					isUsed = true;
 					try {
 						System.out.println("Stove is preparing the batch!");
 						currentBatch = currentMaterial;
@@ -34,6 +38,7 @@ public class Stove implements Runnable{
 						}
 						System.out.println("Batch is ready!");
 						batching = false;
+						isUsed = false;
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -42,6 +47,7 @@ public class Stove implements Runnable{
 			}
 		}else if(!batching){
 				try {
+					isUsed = true;
 					while (this.currentMaterial < incomingMaterial){				
 						Thread.sleep(10);
 						currentMaterial+=2;
@@ -51,6 +57,7 @@ public class Stove implements Runnable{
 				}
 			System.out.println("Material added! Current amount is: "+ this.currentMaterial);
 			batching = true;
+			isUsed = false;
 		}		
 	}
 	
@@ -69,6 +76,9 @@ public class Stove implements Runnable{
 	}
 	public void setBatching(boolean b){
 		this.batching = b;
+	}
+	public boolean getBatchingBool(){
+		return batching;
 	}
 	public void setMaterialAmount(int material){
 		if(material + this.currentMaterial <= this.maxMaterialCapacity){
@@ -98,5 +108,8 @@ public class Stove implements Runnable{
 	}
 	public int getCurrentBatchWithoutRemove(){
 		return this.currentBatch;
+	}
+	public boolean getIsUsed(){
+		return isUsed;
 	}
 }

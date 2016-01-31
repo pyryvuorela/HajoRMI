@@ -17,7 +17,7 @@ public class BottlePump implements Runnable {
 		try {
 			System.out.println("Pumping to bottles started!");
 			while(movedAmount > 0){
-				movedAmount -= 2;
+				movedAmount -= 5;
 				Thread.sleep(10);			
 			}
 			isUsed = false;

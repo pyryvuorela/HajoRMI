@@ -51,10 +51,10 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		super();
 		this.users = new Users();
 		this.siloLoader = new SiloLoader();
-		this.silo1 = new Silo();
-		this.silo2 = new Silo();
-		this.silo3 = new Silo();
-		this.silo4 = new Silo();
+		this.silo1 = new Silo("Silo1");
+		this.silo2 = new Silo("Silo2");
+		this.silo3 = new Silo("Silo3");
+		this.silo4 = new Silo("Silo4");
 		this.stove1 =  new Stove("Stove1");
 		this.stove2 =  new Stove("Stove2");
 		this.stove3 =  new Stove("Stove3");
@@ -140,7 +140,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		stove3.reserveStove(user);
 	}
 	public void startStove1(String user) throws RemoteException {
-		if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == false){
+		if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == false && stove1.getIsUsed() == false){
 			stove1.setBatching(true);
 			new Thread(stove1).start();
 		}else{
@@ -148,7 +148,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}
 	}
 	public void startStove2(String user) throws RemoteException {
-		if(stove2.getReservedUser().equals(user) && stove1.getStartPressed() == false){
+		if(stove2.getReservedUser().equals(user) && stove2.getStartPressed() == false && stove2.getIsUsed() == false){
 			stove2.setBatching(true);
 			new Thread(stove2).start();
 		}else{
@@ -156,7 +156,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}
 	}
 	public void startStove3(String user) throws RemoteException {
-		if(stove3.getReservedUser().equals(user) && stove1.getStartPressed() == false){
+		if(stove3.getReservedUser().equals(user) && stove3.getStartPressed() == false && stove3.getIsUsed() == false){
 			stove3.setBatching(true);
 			new Thread(stove3).start();
 		}else{
@@ -166,7 +166,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	
 	public void startUnloader1(int amount, String user) throws RemoteException {
 		if(!unloader1.isUsed()){
-			if(silo1.getCurrentUser().equals(user) && silo1.getCurrentAmount() >= amount){
+			if(silo1.getCurrentUser().equals(user) && silo1.getCurrentAmount() >= amount && silo1.getIsUsed() == false){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo1.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
@@ -195,7 +195,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("Problem in order, please check reservations and amounts!");
 				}
 			}
-			else if(silo2.getCurrentUser().equals(user) && silo2.getCurrentAmount() >= amount){
+			else if(silo2.getCurrentUser().equals(user) && silo2.getCurrentAmount() >= amount && silo2.getIsUsed() == false){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo2.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
@@ -224,7 +224,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("Problem in order, please check reservations and amounts!");
 				}
 			}
-			else if(silo3.getCurrentUser().equals(user) && silo3.getCurrentAmount() >= amount){
+			else if(silo3.getCurrentUser().equals(user) && silo3.getCurrentAmount() >= amount  && silo3.getIsUsed() == false){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo3.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
@@ -253,7 +253,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("Problem in order, please check reservations and amounts!");
 				}
 			}
-			else if(silo4.getCurrentUser().equals(user) && silo4 .getCurrentAmount() >= amount){
+			else if(silo4.getCurrentUser().equals(user) && silo4 .getCurrentAmount() >= amount  && silo4.getIsUsed() == false){
 				if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 					silo4.removeSilosContent(amount);		
 					stove1.setMaterialAmount(amount);
@@ -288,7 +288,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startUnloader2(int amount, String user) throws RemoteException {
 		if(!unloader2.isUsed()){
-		if(silo1.getCurrentUser().equals(user) && silo1.getCurrentAmount() >= amount){
+		if(silo1.getCurrentUser().equals(user) && silo1.getCurrentAmount() >= amount  && silo1.getIsUsed() == false){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo1.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
@@ -317,7 +317,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}
-		else if(silo2.getCurrentUser().equals(user) && silo2.getCurrentAmount() >= amount){
+		else if(silo2.getCurrentUser().equals(user) && silo2.getCurrentAmount() >= amount  && silo2.getIsUsed() == false){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo2.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
@@ -346,7 +346,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}
-		else if(silo3.getCurrentUser().equals(user) && silo3.getCurrentAmount() >= amount){
+		else if(silo3.getCurrentUser().equals(user) && silo3.getCurrentAmount() >= amount  && silo3.getIsUsed() == false){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo3.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
@@ -373,7 +373,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 				System.out.println("Problem in order, please check reservations and amounts!");
 			}
 		}
-		else if(silo4.getCurrentUser().equals(user) && silo4.getCurrentAmount() >= amount){
+		else if(silo4.getCurrentUser().equals(user) && silo4.getCurrentAmount() >= amount  && silo4.getIsUsed() == false){
 			if(stove1.getReservedUser().equals(user) && stove1.getCurrentMaterial() + amount <= 2000){
 				silo4.removeSilosContent(amount);		
 				stove1.setMaterialAmount(amount);
@@ -408,7 +408,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startPump1(String user) throws RemoteException {
 		if(!pump1.getIsUsed()){			
-			if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == true){
+			if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == true && stove1.getBatchingBool() == false){
 				pump1.setMovedAmount(stove1.getCurrentBatchWithoutRemove());
 				new Thread(pump1).start();
 			
@@ -466,7 +466,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove2.getReservedUser().equals(user) && stove2.getStartPressed() == true){
+			else if(stove2.getReservedUser().equals(user) && stove2.getStartPressed() == true && stove2.getBatchingBool() == false){
 				pump1.setMovedAmount(stove2.getCurrentBatchWithoutRemove());
 				new Thread(pump1).start();
 				
@@ -524,7 +524,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove3.getReservedUser().equals(user) && stove3.getStartPressed() == true){
+			else if(stove3.getReservedUser().equals(user) && stove3.getStartPressed() == true && stove3.getBatchingBool() == false){
 				pump1.setMovedAmount(stove3.getCurrentBatchWithoutRemove());
 				new Thread(pump1).start();
 				
@@ -588,7 +588,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startPump2(String user) throws RemoteException {
 		if(!pump2.getIsUsed()){
-			if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == true){
+			if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == true  && stove1.getBatchingBool() == false){
 				pump2.setMovedAmount(stove1.getCurrentBatchWithoutRemove());
 				new Thread(pump2).start();
 				
@@ -646,7 +646,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove2.getReservedUser().equals(user) && stove2.getStartPressed() == true){
+			else if(stove2.getReservedUser().equals(user) && stove2.getStartPressed() == true && stove2.getBatchingBool() == false){
 				pump2.setMovedAmount(stove2.getCurrentBatchWithoutRemove());
 				new Thread(pump2).start();
 				
@@ -704,7 +704,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove3.getReservedUser().equals(user) && stove3.getStartPressed() == true){
+			else if(stove3.getReservedUser().equals(user) && stove3.getStartPressed() == true && stove3.getBatchingBool() == false){
 				pump2.setMovedAmount(stove3.getCurrentBatchWithoutRemove());
 				new Thread(pump2).start();
 				
@@ -767,61 +767,61 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			}
 	}
 	public void startBottlePump1(String user) throws RemoteException {
-		if(tank1.getReservedUser().equals(user)){
+		if(tank1.getReservedUser().equals(user) && tank1.getTankState() == true){
 			Bpump1.setMovedAmount(tank1.getCurrentAmount());
 			tank1.setReceiving(false);
 			new Thread(tank1).start();
 			new Thread(Bpump1).start();
 		}	
-		else if(tank2.getReservedUser().equals(user)){
+		else if(tank2.getReservedUser().equals(user) && tank2.getTankState() == true){
 			Bpump1.setMovedAmount(tank2.getCurrentAmount());
 			tank2.setReceiving(false);
 			new Thread(tank2).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank3.getReservedUser().equals(user)){
+		else if(tank3.getReservedUser().equals(user) && tank3.getTankState() == true){
 			Bpump1.setMovedAmount(tank3.getCurrentAmount());
 			tank3.setReceiving(false);
 			new Thread(tank3).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank4.getReservedUser().equals(user)){
+		else if(tank4.getReservedUser().equals(user) && tank4.getTankState() == true){
 			Bpump1.setMovedAmount(tank4.getCurrentAmount());
 			tank4.setReceiving(false);
 			new Thread(tank4).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank5.getReservedUser().equals(user)){
+		else if(tank5.getReservedUser().equals(user) && tank5.getTankState() == true){
 			Bpump1.setMovedAmount(tank5.getCurrentAmount());
 			tank5.setReceiving(false);
 			new Thread(tank5).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank6.getReservedUser().equals(user)){
+		else if(tank6.getReservedUser().equals(user) && tank6.getTankState() == true){
 			Bpump1.setMovedAmount(tank6.getCurrentAmount());
 			tank6.setReceiving(false);
 			new Thread(tank6).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank7.getReservedUser().equals(user)){
+		else if(tank7.getReservedUser().equals(user) && tank7.getTankState() == true){
 			Bpump1.setMovedAmount(tank7.getCurrentAmount());
 			tank7.setReceiving(false);
 			new Thread(tank7).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank8.getReservedUser().equals(user)){
+		else if(tank8.getReservedUser().equals(user) && tank8.getTankState() == true){
 			Bpump1.setMovedAmount(tank8.getCurrentAmount());
 			tank8.setReceiving(false);
 			new Thread(tank8).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank9.getReservedUser().equals(user)){
+		else if(tank9.getReservedUser().equals(user) && tank9.getTankState() == true){
 			Bpump1.setMovedAmount(tank9.getCurrentAmount());
 			tank9.setReceiving(false);
 			new Thread(tank9).start();
 			new Thread(Bpump1).start();
 			}
-		else if(tank10.getReservedUser().equals(user)){
+		else if(tank10.getReservedUser().equals(user) && tank10.getTankState() == true){
 			Bpump1.setMovedAmount(tank10.getCurrentAmount());
 			tank10.setReceiving(false);
 			new Thread(tank10).start();
@@ -830,61 +830,61 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}	
 
 	public void startBottlePump2(String user) throws RemoteException {		
-		if(tank1.getReservedUser().equals(user)){
+		if(tank1.getReservedUser().equals(user) && tank1.getTankState() == true){
 			Bpump2.setMovedAmount(tank1.getCurrentAmount());
 			tank1.setReceiving(false);
 			new Thread(tank1).start();
 			new Thread(Bpump2).start();
 		}	
-		else if(tank2.getReservedUser().equals(user)){
+		else if(tank2.getReservedUser().equals(user) && tank2.getTankState() == true){
 			Bpump2.setMovedAmount(tank2.getCurrentAmount());
 			tank2.setReceiving(false);
 			new Thread(tank2).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank3.getReservedUser().equals(user)){
+		else if(tank3.getReservedUser().equals(user) && tank3.getTankState() == true){
 			Bpump2.setMovedAmount(tank3.getCurrentAmount());
 			tank3.setReceiving(false);
 			new Thread(tank3).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank4.getReservedUser().equals(user)){
+		else if(tank4.getReservedUser().equals(user) && tank4.getTankState() == true){
 			Bpump2.setMovedAmount(tank4.getCurrentAmount());
 			tank4.setReceiving(false);
 			new Thread(tank4).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank5.getReservedUser().equals(user)){
+		else if(tank5.getReservedUser().equals(user) && tank5.getTankState() == true){
 			Bpump2.setMovedAmount(tank5.getCurrentAmount());
 			tank5.setReceiving(false);
 			new Thread(tank5).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank6.getReservedUser().equals(user)){
+		else if(tank6.getReservedUser().equals(user) && tank6.getTankState() == true){
 			Bpump2.setMovedAmount(tank6.getCurrentAmount());
 			tank6.setReceiving(false);
 			new Thread(tank6).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank7.getReservedUser().equals(user)){
+		else if(tank7.getReservedUser().equals(user) && tank7.getTankState() == true){
 			Bpump2.setMovedAmount(tank7.getCurrentAmount());
 			tank7.setReceiving(false);
 			new Thread(tank7).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank8.getReservedUser().equals(user)){
+		else if(tank8.getReservedUser().equals(user) && tank8.getTankState() == true){
 			Bpump2.setMovedAmount(tank8.getCurrentAmount());
 			tank8.setReceiving(false);
 			new Thread(tank8).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank9.getReservedUser().equals(user)){
+		else if(tank9.getReservedUser().equals(user) && tank9.getTankState() == true){
 			Bpump2.setMovedAmount(tank9.getCurrentAmount());
 			tank9.setReceiving(false);
 			new Thread(tank9).start();
 			new Thread(Bpump2).start();
 			}
-		else if(tank10.getReservedUser().equals(user)){
+		else if(tank10.getReservedUser().equals(user) && tank10.getTankState() == true){
 			Bpump2.setMovedAmount(tank10.getCurrentAmount());
 			tank10.setReceiving(false);
 			new Thread(tank10).start();

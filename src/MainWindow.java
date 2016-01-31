@@ -1408,6 +1408,7 @@ public class MainWindow extends javax.swing.JFrame {
 				}
         		while(true){
         			try {
+        				Thread.sleep(20);
 						silo1Status.setText(f.silo1CurrentAmountUpdate());
 						silo2Status.setText(f.silo2CurrentAmountUpdate());
 						silo3Status.setText(f.silo3CurrentAmountUpdate());

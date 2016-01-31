@@ -131,7 +131,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		stove3.reserveStove(user);
 	}
 	public void startStove1(String user) throws RemoteException {
-		// TODO TASSA ON SELLAINEN BUGI ETTA ANTAA STARTATA USEAN KERRAN
 		if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == false){
 			stove1.setBatching(true);
 			new Thread(stove1).start();
@@ -140,7 +139,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}
 	}
 	public void startStove2(String user) throws RemoteException {
-		// TODO TASSA ON SELLAINEN BUGI ETTA ANTAA STARTATA USEAN KERRAN
 		if(stove2.getReservedUser().equals(user) && stove1.getStartPressed() == false){
 			stove2.setBatching(true);
 			new Thread(stove2).start();
@@ -149,7 +147,6 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 		}
 	}
 	public void startStove3(String user) throws RemoteException {
-		// TODO TASSA ON SELLAINEN BUGI ETTA ANTAA STARTATA USEAN KERRAN
 		if(stove3.getReservedUser().equals(user) && stove1.getStartPressed() == false){
 			stove3.setBatching(true);
 			new Thread(stove3).start();
@@ -334,10 +331,9 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 			System.out.println("Unloader is already in use!");
 		}
 	}
-
 	public void startPump1(String user) throws RemoteException {
 		if(!pump1.getIsUsed()){			
-			if(stove1.getReservedUser().equals(user)){
+			if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == true){
 				pump1.setMovedAmount(stove1.getCurrentBatchWithoutRemove());
 				new Thread(pump1).start();
 			
@@ -395,7 +391,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove2.getReservedUser().equals(user)){
+			else if(stove2.getReservedUser().equals(user) && stove2.getStartPressed() == true){
 				pump1.setMovedAmount(stove2.getCurrentBatchWithoutRemove());
 				new Thread(pump1).start();
 				
@@ -453,7 +449,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove3.getReservedUser().equals(user)){
+			else if(stove3.getReservedUser().equals(user) && stove3.getStartPressed() == true){
 				pump1.setMovedAmount(stove3.getCurrentBatchWithoutRemove());
 				new Thread(pump1).start();
 				
@@ -517,7 +513,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 	}
 	public void startPump2(String user) throws RemoteException {
 		if(!pump2.getIsUsed()){
-			if(stove1.getReservedUser().equals(user)){
+			if(stove1.getReservedUser().equals(user) && stove1.getStartPressed() == true){
 				pump2.setMovedAmount(stove1.getCurrentBatchWithoutRemove());
 				new Thread(pump2).start();
 				
@@ -575,7 +571,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove2.getReservedUser().equals(user)){
+			else if(stove2.getReservedUser().equals(user) && stove2.getStartPressed() == true){
 				pump2.setMovedAmount(stove2.getCurrentBatchWithoutRemove());
 				new Thread(pump2).start();
 				
@@ -633,7 +629,7 @@ public class FactoryImplementation extends UnicastRemoteObject implements Factor
 					System.out.println("No tanks reserved for current user!");
 				}
 			}
-			else if(stove3.getReservedUser().equals(user)){
+			else if(stove3.getReservedUser().equals(user) && stove3.getStartPressed() == true){
 				pump2.setMovedAmount(stove3.getCurrentBatchWithoutRemove());
 				new Thread(pump2).start();
 				
